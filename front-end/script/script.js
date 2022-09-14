@@ -13,6 +13,3 @@ editBtnEL.addEventListener('click', close)
 backdropEl.addEventListener('click', close)
 
 closeEL.addEventListener('click', close)
-
-
-

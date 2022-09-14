@@ -135,6 +135,7 @@ h3 {
     height: 750px;
     background-color: white;
     border: 1px solid #0f9afb;
+    z-index: 2;
 }
 
 .signup-popup div {
@@ -157,11 +158,27 @@ h3 {
 }
 
 .register-btn {
+    cursor: pointer;
     color: white;
     outline: none;
     border: none;
     background-color: #0f9afb;
     margin: 5rem auto 0 auto;
+}
+
+.backdrop {
+    width: 100vw;
+    height: 100vh;
+    opacity: 0.5;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #546471;
+    z-index: 1;
+}
+
+.none {
+    display: none;
 }
 
 @media(max-width: 1050px) {
@@ -195,7 +212,6 @@ h3 {
 
     .signup-popup {
         width: 100vw;
-        height: 100vh;
         top: 0;
         left: 0;
         margin: 0;
