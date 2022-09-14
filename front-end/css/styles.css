@@ -62,11 +62,11 @@ h3 {
 }
 
 h1 {
-    font-size: 5.5vw;
+    font-size: 3vw;
 }
 
 h3 {
-    font-size: 2.3rem;
+    font-size: 2rem;
 }
 
 .btn {
@@ -125,6 +125,45 @@ h3 {
     border-bottom: 1px solid #536471;
 }
 
+.signup-popup {
+    padding: 1rem;
+    text-align: center;
+    border-radius: 15px;
+    margin: 0rem;
+    position: absolute;
+    width: 500px;
+    height: 750px;
+    background-color: white;
+    border: 1px solid #0f9afb;
+}
+
+.signup-popup div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 1.5rem 0;
+}
+
+.signup-popup label {
+    margin: 0.5rem 0;
+}
+
+.signup-popup input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #0f9afb;
+}
+
+.register-btn {
+    color: white;
+    outline: none;
+    border: none;
+    background-color: #0f9afb;
+    margin: 5rem auto 0 auto;
+}
+
 @media(max-width: 1050px) {
     .content {
         order: -1;
@@ -153,6 +192,16 @@ h3 {
 }
 
 @media(max-width: 580px) {
+
+    .signup-popup {
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        margin: 0;
+        border-radius: 0;
+    }
+
     .content {
         padding: 1rem;
         margin: 0 auto;

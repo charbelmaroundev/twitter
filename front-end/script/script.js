@@ -1,5 +1,3 @@
-console.log("hahah");
-
 const editBtnEL = document.querySelector(".edit-profile-btn")
 const popupEl = document.querySelector(".popup")
 const backdropEl = document.querySelector(".backdrop")
