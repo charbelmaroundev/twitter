@@ -63,7 +63,7 @@
     border: 1px solid white;
     position: absolute;
     z-index: 2;
-    width: 30vw;
+    width: 60rem;
     height: 65vh;
     background-color: #ffffff;
     margin: auto;
@@ -226,4 +226,14 @@ label {
     display: block;
     font-size: 12px;
     color: #657480;
+}
+
+@media (max-width: 700px) {
+    .popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+    }
 }
