@@ -1,13 +1,23 @@
 const registerEl = document.querySelector(".btn-signup")
-const popupEl = document.querySelector(".signup-popup")
-const backdropEl = document.querySelector(".backdrop")
+const loginbtnEl = document.querySelector(".btn-login")
+const popup1El = document.querySelector(".signup-popup")
+const popup2El = document.querySelector('.login-popup')
+const backdropEl1 = document.querySelector(".backdrop1")
+const backdropEl2 = document.querySelector(".backdrop2")
 
-close = () => {
-    popupEl.classList.toggle("none")
-    backdropEl.classList.toggle("none")
+close1 = () => {
+    popup1El.classList.toggle("none")
+    backdropEl1.classList.toggle("none")
 }
 
-// registerEl.addEventListener('click', close, console.log("CLICK"))
+registerEl.addEventListener('click', close1)
+backdropEl1.addEventListener('click', close1)
 
-registerEl.addEventListener('click', close)
-backdropEl.addEventListener('click', close)
+
+close2 = () => {
+    popup2El.classList.toggle("none")
+    backdropEl2.classList.toggle("none")
+}
+
+loginbtnEl.addEventListener('click', close2)
+backdropEl2.addEventListener('click', close2)
