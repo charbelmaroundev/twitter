@@ -487,3 +487,52 @@ main {
         width: 80vw;
     }
 }
+
+/* /////////////////////////// */
+/* MEDIA QUERY 500px */
+/* /////////////////////////// */
+
+@media (max-width: 500px) {
+    header {
+        width: 100vw;
+        height: 5vh;
+        flex-direction: column;
+        position: fixed;
+        bottom: 0;
+        background-color: white;
+        border-top: 1px solid #eff3f4;
+    }
+
+    main {
+        margin: 0;
+        width: 100vw;
+    }
+
+    .navbar a:first-child,
+    .account>a>img,
+    .account {
+        display: none;
+    }
+
+    .home-bar {
+        position: fixed;
+        top: 0;
+    }
+
+    .new-tweet {
+        margin-top: 6rem;
+    }
+
+    .main-section {
+        width: 100vw;
+    }
+
+    .navbar {
+        flex-direction: row;
+        margin: auto;
+    }
+
+    .navbar a {
+        margin: 8rem;
+    }
+}
