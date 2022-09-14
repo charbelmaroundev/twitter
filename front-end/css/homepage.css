@@ -366,3 +366,13 @@ main {
         width: 75vw;
     }
 }
+
+/* /////////////////////////// */
+/* MEDIA QUERY 1600px */
+/* /////////////////////////// */
+
+@media (max-width: 1600px) {
+    header {
+        padding: 1rem 0 1rem 12.5%;
+    }
+}
