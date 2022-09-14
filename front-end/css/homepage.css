@@ -256,3 +256,56 @@ main {
 .new-tweet-btns input {
     display: none;
 }
+
+/* /////////////////////////// */
+/* TWEETS */
+/* /////////////////////////// */
+
+.tweet {
+    font-family: 'Noto Sans JP', sans-serif;
+    display: flex;
+    width: 100%;
+    min-height: 100px;
+    padding: 1.2rem 1.6rem 0 1.6rem;
+    border-top: 1px solid rgb(224, 220, 220);
+    cursor: pointer;
+}
+
+.tweet-details {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-left: 1.2rem;
+}
+
+.tweeter-details {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    font-size: 1.5rem;
+}
+
+.tweeter-name {
+    font-weight: 700;
+}
+
+.tweeter-handle {
+    color: #828e97;
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-left: 0.3rem;
+}
+
+.tweet-text {
+    font-size: 1.5rem;
+    width: 100%;
+}
+
+.tweet-icons {
+    margin: 1.5rem 0;
+}
+
+.like-icon {
+    width: 2rem;
+    height: 2rem;
+}
