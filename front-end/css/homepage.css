@@ -352,3 +352,17 @@ main {
     line-height: 2rem;
     font-weight: 400;
 }
+
+/* /////////////////////////// */
+/* MEDIA QUERY 1800px */
+/* /////////////////////////// */
+
+@media (max-width: 1800px) {
+    header {
+        padding: 1rem 0 1rem 15%;
+    }
+
+    main-flex {
+        width: 75vw;
+    }
+}
