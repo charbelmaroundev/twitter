@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background-color: #ffffff;
+}
+
+img {
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 2.4rem;
+}
+
+/* /////////////////////////// */
+/* HEADER */
+/* /////////////////////////// */
+
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem 0 1rem 17.5%;
+    width: 31%;
+    height: 100%;
+    position: fixed;
+}
+
+/* /////////////////////////// */
+/* NAVBAR */
+/* /////////////////////////// */
+
+.navbar {
+    font-family: 'Noto Sans JP', sans-serif;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 15%;
+    justify-content: space-between;
+}
+
+.navbar a {
+    display: flex;
+    align-content: center;
+    font-size: 2rem;
+    padding: 1.2rem 3rem 1.2rem 1rem;
+    width: fit-content;
+}
+
+.navbar a:hover,
+.account a:hover {
+    background-color: #e7e7e8;
+    border-radius: 50px;
+}
+
+.navbar a:first-child .navbar-icon {
+    margin: 0;
+}
+
+.navbar a:first-child {
+    padding: 0.8rem 0.8rem;
+}
+
+.navbar-icon {
+    width: 2.5rem;
+    margin-right: 1.5rem;
+}
+
+.tweet-btn {
+    background-color: #1d9bf0;
+    width: 85%;
+    height: 5rem;
+    border-radius: 50px;
+    margin-top: 1.5rem;
+    color: white;
+    font-size: 1.8rem;
+    border: none;
+}
+
+.tweet-btn:hover {
+    cursor: pointer;
+    background-color: #167abd;
+}
+
+.bold {
+    font-weight: 900;
+}
+
+/* /////////////////////////// */
+/* ACCOUNT */
+/* /////////////////////////// */
+
+.account {
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    height: 7%;
+}
+
+.account a {
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8vw 1vw 0 1vw;
+    padding: 1rem;
+    width: fit-content;
+}
+
+.account-img {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+}
+
+.account-details {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 70%;
+    margin: 0 3.5rem 0 1rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 2rem;
+}
+
+.account-details-username {
+    color: #63727e;
+    font-size: 1.4rem;
+}
+
+.account-more {
+    margin-right: 0;
+}
