@@ -464,3 +464,26 @@ main {
         width: 100%;
     }
 }
+
+/* /////////////////////////// */
+/* MEDIA QUERY 1000px */
+/* /////////////////////////// */
+
+@media (max-width: 1000px) {
+    html {
+        font-size: 50%;
+    }
+
+    main {
+        width: 90vw;
+        justify-content: center;
+    }
+
+    .side-section {
+        display: none;
+    }
+
+    .main-section {
+        width: 80vw;
+    }
+}
