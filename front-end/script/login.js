@@ -7,6 +7,22 @@ const backdropEl2 = document.querySelector(".backdrop2")
 const loginUsernameEl = document.getElementById('login-username')
 const loginPasswordEl = document.getElementById('login-password')
 const loginBtnEl = document.querySelector('.login-btn')
+const signupFirstnameEl = document.getElementById('signupFirstname')
+const signupLastnameEl = document.getElementById('signupLastname')
+const signupUsernameEl = document.getElementById('signupUsername')
+const signupEmailEl = document.getElementById('signupEmail')
+const signupPasswordEl = document.getElementById('signupPassword')
+const registerbBtnEl = document.querySelector('.register-btn')
+const emailTakenEl = document.querySelector('.email-taken')
+const usernameTakenEl = document.querySelector('.username-taken')
+const accountCreatedEl = document.querySelector('.account-created')
+const wrongUsernamePasswordEl = document.querySelector('.wrong-username-password')
+
+console.log(localStorage.getItem("logged"));
+
+if (localStorage.getItem("logged") === "true") {
+    window.location.href = 'homepage.html';
+}
 
 close1 = () => {
     popup1El.classList.toggle("none")
@@ -25,16 +41,38 @@ close2 = () => {
 loginbtnEl.addEventListener('click', close2)
 backdropEl2.addEventListener('click', close2)
 
-loginBtnEl.addEventListener('click', (e) => {
+
+registerbBtnEl.addEventListener('click', (e) => {
     e.preventDefault()
-    fetch('http://localhost/twitter/users.php')
-        .then((response) => response.json())
-        .then((data) => {
-            for (i = 0; i < data.length; i++) {
-                if (loginUsernameEl.value === data[i]['username'] && loginPasswordEl.value === data[i]['password']) {
-                    console.log("LOGGED");
-                    location.replace("homepage.html")
-                }
+
+    let url = "http://localhost/twitter/register.php";
+    let parameters = {
+        method: 'POST',
+        body: new URLSearchParams({
+            firstname: signupFirstnameEl.value,
+            lastname: signupLastnameEl.value,
+            username: signupUsernameEl.value,
+            email: signupEmailEl.value,
+            password: signupPasswordEl.value,
+        })
+    }
+    fetch(url, parameters)
+        .then(response => response.json())
+        .then(data => {
+            if (data['1'] == "EMAIL") {
+                console.log("THIS EMAIL IS TAKEN");
+                emailTakenEl.classList.remove("opacity")
+            } else if (data['1'] == "USERNAME") {
+                console.log("THIS USERNAME IS TAKEN");
+                usernameTakenEl.classList.remove("opacity")
+            } else {
+                console.log(data);
+                localStorage.setItem("logged", true);
+                console.log("ACCOUNT CREATED");
+                accountCreatedEl.classList.remove("opacity")
+                window.setTimeout(function () {
+                    window.location.href = 'homepage.html';
+                }, 5000);
             }
         })
 })
