@@ -28,4 +28,32 @@ $result2 = $return2 -> fetch_assoc();
 
 $response = [];
 
+if(!$result2['email'] and !$result1['username']){
+    $query = $mysqli->prepare("INSERT INTO users(firstname,lastname, username, email, password) VALUE (?, ?, ?, ?, ?)");
+    $query->bind_param("sssss", $firstname, $lastname, $username, $email, $password);
+    $query->execute();
+
+
+
+    $query3 = $mysqli->prepare("SELECT id FROM users WHERE username = ? and password = ? LIMIT 1");
+    $query3->bind_param("ss", $username, $password);
+    $query3->execute();
+
+    $return3 = $query3 -> get_result();
+    $result3 = $return3 -> fetch_assoc();
+    
+    // $response["created"] = $result3['id'];
+    // echo json_encode($result['id']);
+
+    echo json_encode($result3['id']);
+
+    // echo json_encode($response);
+}  elseif ($result2['email']){
+    $response[$result2['email']] = "EMAIL";
+    echo json_encode($response);
+
+} elseif($result1['username']){
+    $response[$result1['username']] = "USERNAME";
+    echo json_encode($response);
+}
 ?>
