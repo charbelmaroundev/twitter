@@ -91,7 +91,22 @@ loginBtnEl.addEventListener('click', (e) => {
     fetch(url, parameters)
         .then(response => response.json())
         .then(data => {
-            console.log(data);
+            // console.log(data);
+
+
+
+
+            // let url = "http://localhost/twitter/fetchdata_id.php";
+            // let parameters = {
+            //     method: 'POST',
+            //     body: new URLSearchParams({
+            //         id: data
+            //     })
+            // }
+            // fetch(url, parameters)
+            //     .then(response => response.json())
+            //     .then(data)
+
 
             if (data) {
                 wrongUsernamePasswordEl.innerHTML = "Logged in"
@@ -101,6 +116,17 @@ loginBtnEl.addEventListener('click', (e) => {
                     window.location.href = 'homepage.html';
                 }, 5000);
                 localStorage.setItem("logged", true);
+
+                let url = "http://localhost/twitter/fetchdata_id.php";
+                let parameters = {
+                    method: 'POST',
+                    body: new URLSearchParams({
+                        id: data
+                    })
+                }
+                fetch(url, parameters)
+                    .then(response => response.json())
+                    .then(data => console.log(data))
             } else {
                 wrongUsernamePasswordEl.style.color = "red"
                 wrongUsernamePasswordEl.classList.remove("opacity")
