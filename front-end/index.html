@@ -46,24 +46,27 @@
                 <form action="">
                     <div>
                         <label for="">First Name</label>
-                        <input type="text" placeholder="Enter your first name...">
+                        <input id="signupFirstname" type="text" placeholder="Enter your first name...">
                     </div>
                     <div>
                         <label for="">Last Name</label>
-                        <input type="text" placeholder="Enter you last name...">
+                        <input id="signupLastname" type="text" placeholder="Enter you last name...">
                     </div>
                     <div>
                         <label for="">Email</label>
-                        <input type="email" placeholder="Enter your email...">
+                        <input id="signupEmail" type="email" placeholder="Enter your email...">
+                        <p class="email-taken opacity">This email is taken!</p>
                     </div>
                     <div>
                         <label for="">Username</label>
-                        <input type="text" placeholder="Enter your username...">
+                        <input id="signupUsername" type="text" placeholder="Enter your username...">
+                        <p class="username-taken opacity">This username is taken!</p>
                     </div>
                     <div>
                         <label for="">Password</label>
-                        <input type="password" placeholder="Enter your password...">
+                        <input id="signupPassword" type="password" placeholder="Enter your password...">
                     </div>
+                    <p class="account-created opacity">ACCOUNT CREATED</p>
                     <button class="register-btn btn">Register</button>
                 </form>
             </div>
@@ -78,6 +81,7 @@
                         <label for="">Password</label>
                         <input id="login-password" type="password" placeholder="Enter your password...">
                     </div>
+                    <p class="wrong-username-password opacity">Logged in!</p>
                     <button class="login-btn btn">Log in</button>
                 </form>
             </div>
