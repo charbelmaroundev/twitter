@@ -76,3 +76,37 @@ registerbBtnEl.addEventListener('click', (e) => {
             }
         })
 })
+
+loginBtnEl.addEventListener('click', (e) => {
+    e.preventDefault()
+
+    let url = "http://localhost/twitter/login.php";
+    let parameters = {
+        method: 'POST',
+        body: new URLSearchParams({
+            username: loginUsernameEl.value,
+            password: loginPasswordEl.value,
+        })
+    }
+    fetch(url, parameters)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+
+            if (data) {
+                wrongUsernamePasswordEl.innerHTML = "Logged in"
+                wrongUsernamePasswordEl.style.color = "green"
+                wrongUsernamePasswordEl.classList.remove("opacity")
+                window.setTimeout(function () {
+                    window.location.href = 'homepage.html';
+                }, 5000);
+                localStorage.setItem("logged", true);
+            } else {
+                wrongUsernamePasswordEl.style.color = "red"
+                wrongUsernamePasswordEl.classList.remove("opacity")
+                wrongUsernamePasswordEl.innerHTML = "Your username and password are wrong!"
+                localStorage.setItem("logged", false);
+
+            }
+        })
+})
