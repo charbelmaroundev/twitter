@@ -168,11 +168,11 @@ h3 {
     outline: none;
     border: none;
     background-color: #0f9afb;
-    margin: 5rem auto 0 auto;
+    margin: 1rem auto 0 auto;
 }
 
 .login-btn {
-    margin-top: 25rem;
+    margin-top: 20rem;
 }
 
 .backdrop1,
@@ -185,6 +185,26 @@ h3 {
     left: 0;
     background-color: #546471;
     z-index: 1;
+}
+
+.email-taken,
+.username-taken {
+    color: red;
+    margin: 0.2rem 0;
+    font-size: 0.7rem;
+}
+
+.wrong-username-password {
+    font-size: 1.3rem;
+}
+
+.account-created {
+    font-weight: 700;
+    color: rgb(0, 255, 0);
+}
+
+.opacity {
+    opacity: 0;
 }
 
 .none {
@@ -216,11 +236,11 @@ h3 {
     .register-btn,
     .login-btn {
         width: 24rem;
-        margin: 5rem auto 0 auto;
+        margin: 1rem auto 0 auto;
     }
 
     .login-btn {
-        margin-top: 25rem;
+        margin-top: 15rem;
     }
 
     h1 {
