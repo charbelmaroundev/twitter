@@ -18,8 +18,7 @@ const usernameTakenEl = document.querySelector('.username-taken')
 const accountCreatedEl = document.querySelector('.account-created')
 const wrongUsernamePasswordEl = document.querySelector('.wrong-username-password')
 
-console.log(localStorage.getItem("logged"));
-
+// console.log(localStorage.getItem("logged"));
 if (localStorage.getItem("logged") === "true") {
     window.location.href = 'homepage.html';
 }
@@ -66,8 +65,8 @@ registerbBtnEl.addEventListener('click', (e) => {
                 console.log("THIS USERNAME IS TAKEN");
                 usernameTakenEl.classList.remove("opacity")
             } else {
-                console.log(data);
                 localStorage.setItem("logged", true);
+                localStorage.setItem("id", data);
                 console.log("ACCOUNT CREATED");
                 accountCreatedEl.classList.remove("opacity")
                 window.setTimeout(function () {
@@ -91,22 +90,6 @@ loginBtnEl.addEventListener('click', (e) => {
     fetch(url, parameters)
         .then(response => response.json())
         .then(data => {
-            // console.log(data);
-
-
-
-
-            // let url = "http://localhost/twitter/fetchdata_id.php";
-            // let parameters = {
-            //     method: 'POST',
-            //     body: new URLSearchParams({
-            //         id: data
-            //     })
-            // }
-            // fetch(url, parameters)
-            //     .then(response => response.json())
-            //     .then(data)
-
 
             if (data) {
                 wrongUsernamePasswordEl.innerHTML = "Logged in"
@@ -115,7 +98,9 @@ loginBtnEl.addEventListener('click', (e) => {
                 window.setTimeout(function () {
                     window.location.href = 'homepage.html';
                 }, 5000);
+
                 localStorage.setItem("logged", true);
+                localStorage.setItem("id", data);
 
                 let url = "http://localhost/twitter/fetchdata_id.php";
                 let parameters = {

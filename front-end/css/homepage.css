@@ -286,7 +286,12 @@ main {
 }
 
 .tweeter-name {
+    display: flex;
     font-weight: 700;
+}
+
+.tweeter-name p {
+    margin-right: 1rem;
 }
 
 .tweeter-handle {
