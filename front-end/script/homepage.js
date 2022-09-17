@@ -1,10 +1,8 @@
-// const tweeterNameEl = document.querySelectorAll('.tweeter-name p')
-// const tweeterHandleEl = document.querySelectorAll('.tweeter-handle')
 const accountImgEl = document.querySelectorAll('#account-img')
 const accountDetailsUsernameEl = document.querySelector('.account-details-username')
 const accountDetailsName = document.querySelector('.account-details-name')
 const accountDetailsUsername = document.querySelector('.account-details-username')
-
+const searchEl = document.getElementById('search');
 
 let url = "http://localhost/twitter/fetchdata_id.php";
 let parameters = {
@@ -23,3 +21,19 @@ fetch(url, parameters)
             img.src = data[0]['image']
         })
     })
+
+searchEl.addEventListener('keyup', () => {
+    console.log(searchEl.value)
+    let url = "http://localhost/twitter/search.php";
+    let parameters = {
+        method: 'POST',
+        body: new URLSearchParams({
+            search: searchEl.value
+        })
+    }
+    fetch(url, parameters)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+        })
+})
