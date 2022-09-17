@@ -364,8 +364,7 @@ main {
 
 .search-results {
     box-shadow: 4px 4px 10px gray;
-    width: 55%;
-    font-size: 0.8rem;
+    width: 35rem;
     font-weight: 400;
 }
 
@@ -375,16 +374,20 @@ main {
 }
 
 .result div {
-    margin: 1rem;
+    margin: 1rem 0 0 1rem;
 }
 
-.results-username {
+.result-username {
     color: #63727e;
     font-size: 1.2rem;
 }
 
+.result-name {
+    font-size: 1.5rem;
+}
+
 .result img {
-    margin: 1rem;
+    /* margin: 1rem; */
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -497,9 +500,10 @@ main {
         padding: 0 3rem;
     }
 
+    /* 
     .search input {
-        width: 100%;
-    }
+        width: 35;
+    } */
 }
 
 /* /////////////////////////// */

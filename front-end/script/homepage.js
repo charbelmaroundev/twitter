@@ -39,15 +39,15 @@ searchEl.addEventListener('keyup', () => {
             const results = []
             for (let i = 0; i < data.length; i++) {
                 let result = `
-                <div class="result">
+                <a href="" class="result">
                     <div>
                         <img src="${data[i]['image']}" alt="">
                     </div>
                     <div>
-                        <h1>${data[i]['firstname']} ${data[i]['lastname']}</h1>
-                        <h1 class="results-username">@${data[i]['username']}</h1>
+                        <h1 class="result-name">${data[i]['firstname']} ${data[i]['lastname']}</h1>
+                        <h1 class="result-username">@${data[i]['username']}</h1>
                     </div>
-                </div>
+                </a>
                 `
                 results.push(result)
             }
