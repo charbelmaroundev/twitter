@@ -18,11 +18,9 @@ const usernameTakenEl = document.querySelector('.username-taken')
 const accountCreatedEl = document.querySelector('.account-created')
 const wrongUsernamePasswordEl = document.querySelector('.wrong-username-password')
 
-console.log(localStorage.getItem("logged"));
-
+// console.log(localStorage.getItem("logged"));
 if (localStorage.getItem("logged") === "true") {
     window.location.href = 'homepage.html';
-
 }
 
 close1 = () => {
@@ -45,7 +43,7 @@ backdropEl2.addEventListener('click', close2)
 
 registerbBtnEl.addEventListener('click', (e) => {
     e.preventDefault()
-
+    let defaultImage = "./assets/profile.png"
     let url = "http://localhost/twitter/register.php";
     let parameters = {
         method: 'POST',
@@ -55,6 +53,7 @@ registerbBtnEl.addEventListener('click', (e) => {
             username: signupUsernameEl.value,
             email: signupEmailEl.value,
             password: signupPasswordEl.value,
+            image: defaultImage
         })
     }
     fetch(url, parameters)
@@ -67,8 +66,8 @@ registerbBtnEl.addEventListener('click', (e) => {
                 console.log("THIS USERNAME IS TAKEN");
                 usernameTakenEl.classList.remove("opacity")
             } else {
-                console.log(data);
                 localStorage.setItem("logged", true);
+                localStorage.setItem("id", data);
                 console.log("ACCOUNT CREATED");
                 accountCreatedEl.classList.remove("opacity")
                 window.setTimeout(function () {
@@ -92,7 +91,6 @@ loginBtnEl.addEventListener('click', (e) => {
     fetch(url, parameters)
         .then(response => response.json())
         .then(data => {
-            console.log(data);
 
             if (data) {
                 wrongUsernamePasswordEl.innerHTML = "Logged in"
@@ -101,7 +99,20 @@ loginBtnEl.addEventListener('click', (e) => {
                 window.setTimeout(function () {
                     window.location.href = 'homepage.html';
                 }, 5000);
+
                 localStorage.setItem("logged", true);
+                localStorage.setItem("id", data);
+
+                let url = "http://localhost/twitter/fetchdata_id.php";
+                let parameters = {
+                    method: 'POST',
+                    body: new URLSearchParams({
+                        id: data
+                    })
+                }
+                fetch(url, parameters)
+                    .then(response => response.json())
+                    .then(data => console.log(data))
             } else {
                 wrongUsernamePasswordEl.style.color = "red"
                 wrongUsernamePasswordEl.classList.remove("opacity")
@@ -111,34 +122,3 @@ loginBtnEl.addEventListener('click', (e) => {
             }
         })
 })
-
-
-
-
-
-
-if(window.location.href == 'profilepage.html')
-      user_page();
-
-
-function user_page(){
-
-  fetch("http://localhost/twitter/user_profile.php?id=233")
-    .then(response => response.json())
-    .then((data) => {
-      get_name[0].innerHTML = "@"+data[0].username;
-      get_profile_name[0].textContent= data[0].first_name +" " + data[0].last_name;
-      get_profile_username[0].innerHTML = "@"+data[0].username;
-      get_profile_title_name[0].textContent= data[0].first_name +" " + data[0].last_name;
-      get_account_name[0].textContent= data[0].first_name +" " + data[0].last_name;
-      get_details_name[0].textContent= data[0].first_name +" " + data[0].last_name;
-    });
-}
-
-function getlogin_id(){
-  fetch("http://localhost/twitter/login.php?")
-    .then(response => response.json())
-    .then((data) => {
-    let user_id="";
-    user_id=data[0];});
-}
