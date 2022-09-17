@@ -7,12 +7,12 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorizatio
 include("connection.php");
 
 
-$follower_id =$_POST["follower_id"];
+$follower_id = $_POST["follower_id"];
 $following_id = $_POST["following_id"];
 
 
-$query = $mysqli->prepare("INSERT INTO followers(follower_id,following_id) VALUE (?,?)");
-$query->bind_param("sss", $follower_id, $following_id);
+$query = $mysqli->prepare("INSERT INTO user_follow_user(follower_id , following_id) VALUE (?,?)");
+$query->bind_param("ss", $follower_id , $following_id);
 $query->execute();
 
 
