@@ -125,7 +125,8 @@ h3 {
     border-bottom: 1px solid #536471;
 }
 
-.signup-popup {
+.signup-popup,
+.login-popup {
     padding: 1rem;
     text-align: center;
     border-radius: 15px;
@@ -138,18 +139,21 @@ h3 {
     z-index: 2;
 }
 
-.signup-popup div {
+.signup-popup div,
+.login-popup div {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     margin: 1.5rem 0;
 }
 
-.signup-popup label {
+.signup-popup label,
+.login-popup label {
     margin: 0.5rem 0;
 }
 
-.signup-popup input {
+.signup-popup input,
+.login-popup input {
     width: 100%;
     padding: 0.8rem 1rem;
     outline: none;
@@ -157,16 +161,22 @@ h3 {
     border: 1px solid #0f9afb;
 }
 
-.register-btn {
+.register-btn,
+.login-btn {
     cursor: pointer;
     color: white;
     outline: none;
     border: none;
     background-color: #0f9afb;
-    margin: 5rem auto 0 auto;
+    margin: 1rem auto 0 auto;
 }
 
-.backdrop {
+.login-btn {
+    margin-top: 20rem;
+}
+
+.backdrop1,
+.backdrop2 {
     width: 100vw;
     height: 100vh;
     opacity: 0.5;
@@ -175,6 +185,26 @@ h3 {
     left: 0;
     background-color: #546471;
     z-index: 1;
+}
+
+.email-taken,
+.username-taken {
+    color: red;
+    margin: 0.2rem 0;
+    font-size: 0.7rem;
+}
+
+.wrong-username-password {
+    font-size: 1.3rem;
+}
+
+.account-created {
+    font-weight: 700;
+    color: rgb(0, 255, 0);
+}
+
+.opacity {
+    opacity: 0;
 }
 
 .none {
@@ -203,6 +233,16 @@ h3 {
         margin-right: 1rem;
     }
 
+    .register-btn,
+    .login-btn {
+        width: 24rem;
+        margin: 1rem auto 0 auto;
+    }
+
+    .login-btn {
+        margin-top: 15rem;
+    }
+
     h1 {
         font-size: 8vw;
     }
@@ -210,7 +250,8 @@ h3 {
 
 @media(max-width: 580px) {
 
-    .signup-popup {
+    .signup-popup,
+    .login-popup {
         width: 100vw;
         top: 0;
         left: 0;

@@ -2,16 +2,33 @@ const editBtnEL = document.querySelector(".edit-profile-btn")
 const popupEl = document.querySelector(".popup")
 const backdropEl = document.querySelector(".backdrop")
 const closeEL = document.getElementById("close")
+const editImgEl = document.getElementById('file-input')
+const editSaveEl = document.getElementById('edit-save')
+const editNameEl = document.getElementById('edit-name')
 
-//get_name = document.querySelector(".account-details-name");
-get_name = document.getElementsByClassName("account-details-username");
-get_details_name = document.getElementsByClassName("account-details-name");
-get_account_name=document.getElementsByClassName("account-name");
-get_profile_name = document.getElementsByClassName("profile-username-name");
-get_profile_username = document.getElementsByClassName("profile-username-user");
-get_profile_title_name = document.getElementsByClassName("title_name");
+editSaveEl.addEventListener("click", () => {
+    const readFile = editImgEl => {
+        const FR = new FileReader();
+        FR.addEventListener("load", (evt) => {
+            srcData = evt.target.result
+            console.log(srcData);
+            const [first, last] = editNameEl.value.split(' ');
+            fetch('http://localhost/twitter/editprofile.php', {
+                method: 'POST',
+                body: new URLSearchParams({
+                    firstname: first,
+                    lastname: last,
+                    image: srcData
+                })
+            })
+                .then(response => response.json())
+                .then(data => console.log(data))
+        });
+        FR.readAsDataURL(editImgEl.files[0]);
 
-
+    }
+    readFile(editImgEl)
+})
 
 close = () => {
     popupEl.classList.toggle("none")
@@ -19,38 +36,5 @@ close = () => {
 }
 
 editBtnEL.addEventListener('click', close)
-
 backdropEl.addEventListener('click', close)
-
 closeEL.addEventListener('click', close)
-
-
-
-
-user_page();
-
-function user_page(){
-
-  fetch("http://localhost/twitter/user_profile.php?id="+getlogin_id)
-    .then(response => response.json())
-    .then((data) => {
-      get_name[0].innerHTML = "@"+data[0].username;
-      get_profile_name[0].textContent= data[0].first_name +" " + data[0].last_name;
-      get_profile_username[0].innerHTML = "@"+data[0].username;
-      get_profile_title_name[0].textContent= data[0].first_name +" " + data[0].last_name;
-      get_account_name[0].textContent= data[0].first_name +" " + data[0].last_name;
-      get_details_name[0].textContent= data[0].first_name +" " + data[0].last_name;
-    })
-}
-
-
-getlogin_id(){
-  fetch("http://localhost/twitter/login.php?")
-    .then(response => response.json())
-    .then((data) => {
-    let user_id="";
-    user_id=data[]
-
-})
-
-}
