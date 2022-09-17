@@ -117,14 +117,13 @@ loginBtnEl.addEventListener('click', (e) => {
 
 
 
-
-
-
+if(window.location.href == 'profilepage.html')
+      user_page();
 
 
 function user_page(){
 
-  fetch("http://localhost/twitter/user_profile.php?id="+getlogin_id)
+  fetch("http://localhost/twitter/user_profile.php?id=233")
     .then(response => response.json())
     .then((data) => {
       get_name[0].innerHTML = "@"+data[0].username;

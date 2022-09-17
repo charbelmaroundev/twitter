@@ -1,1 +1,0 @@
-$query = $mysqli->prepare("SELECT first_name , last_name , username , image , text FROM users , tweets WHERE email='$email' and users.id = tweets.users_id");
