@@ -58,8 +58,8 @@ const followrequest =document.querySelector('.follow-btn');
     fetch("http://localhost/twitter/addfollower.php", {
         method: 'POST',
         body: new URLSearchParams({
-            // id:localStorage.getItem("id"),
-            // blockedid: localStorage.getItem("destination")
+            // follower_id:localStorage.getItem("id"),
+            // following_id: localStorage.getItem("destination")
             follower_id:233,
             following_id: 319
         })
