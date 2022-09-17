@@ -3,7 +3,7 @@ const profileUsernameNameEl = document.querySelector('.profile-username-name');
 const profileUsernameUserEl = document.querySelector('.profile-username-user');
 const imageProfileImgEl = document.querySelector('.image-profile-img');
 const accountImg1El = document.querySelector('.account-img');
-const followrequest =document.querySelector('follow-btn');
+const followrequest =document.querySelector('.follow-btn');
 
 
 
@@ -60,8 +60,8 @@ const followrequest =document.querySelector('follow-btn');
         body: new URLSearchParams({
             // id:localStorage.getItem("id"),
             // blockedid: localStorage.getItem("destination")
-            id:233,
-            blockedid: 319
+            follower_id:233,
+            following_id: 319
         })
     })
         .then(response => response.json())
