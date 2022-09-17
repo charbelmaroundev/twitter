@@ -13,7 +13,7 @@ $follower_id = $_POST["follower_id"];
 
 
 $query = $mysqli->prepare("SELECT COUNT(following_id) FROM user_follow_user WHERE following_id = ? LIMIT 1");
-$query->bind_param("s", $following_id);
+$query->bind_param("s", $follower_id);
 $query->execute();
 
 
