@@ -51,11 +51,11 @@ const more_button =document.querySelector('.more');
 
 
 
-
-    followrequest.addEventListener('click', (e) => {
+ // follow user button
+    followrequest.addEventListener('click', (e) => {            // add follow button functionality
         e.preventDefault()
 
-    fetch("http://localhost/twitter/addfollower.php", {
+    fetch("http://localhost/twitter/addfollower.php", {         //Fetch add follower api
         method: 'POST',
         body: new URLSearchParams({
             // follower_id:localStorage.getItem("id"),
@@ -76,12 +76,14 @@ const more_button =document.querySelector('.more');
 
 
 
-    more_button.addEventListener('click', (e) => {
+// Block user button
+
+    more_button.addEventListener('click', (e) => {          //add button functionality
         e.preventDefault()
 
-    fetch("http://localhost/twitter/blockuser.php", {
+    fetch("http://localhost/twitter/blockuser.php", {       //Fetch block user api
         method: 'POST',
-        body: new URLSearchParams({
+        body: new URLSearchParams({                         //send user id to block
             // follower_id:localStorage.getItem("id"),
             // following_id: localStorage.getItem("destination")
             users_id:233,
