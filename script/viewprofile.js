@@ -79,13 +79,13 @@ const more_button =document.querySelector('.more');
     more_button.addEventListener('click', (e) => {
         e.preventDefault()
 
-    fetch("http://localhost/twitter/addfollower.php", {
+    fetch("http://localhost/twitter/blockuser.php", {
         method: 'POST',
         body: new URLSearchParams({
             // follower_id:localStorage.getItem("id"),
             // following_id: localStorage.getItem("destination")
-            follower_id:233,
-            following_id: 319
+            user_id:233,
+            user_id1: 319
         })
     })
         .then(response => response.json())
