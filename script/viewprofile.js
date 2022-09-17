@@ -84,8 +84,8 @@ const more_button =document.querySelector('.more');
         body: new URLSearchParams({
             // follower_id:localStorage.getItem("id"),
             // following_id: localStorage.getItem("destination")
-            user_id:233,
-            user_id1: 319
+            users_id:233,
+            users_id1: 319
         })
     })
         .then(response => response.json())
