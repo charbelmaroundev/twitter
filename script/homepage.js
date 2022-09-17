@@ -6,23 +6,23 @@ const searchEl = document.getElementById('search');
 const searchResultsEl = document.querySelector('.search-results');
 const accountNameEl = document.querySelector('.account-name');
 
-let url = "http://localhost/twitter/fetchdata_id.php";
-let parameters = {
-    method: 'POST',
-    body: new URLSearchParams({
-        id: localStorage.getItem("id")
-    })
-}
-fetch(url, parameters)
-    .then(response => response.json())
-    .then(data => {
-        // console.log(data)
-        accountDetailsName.innerHTML = `${data[0]['firstname']} ${data[0]['lastname']}`
-        accountDetailsUsername.innerHTML = `@${data[0]['username']}`
-        accountImgEl.forEach((img) => {
-            img.src = data[0]['image']
-        })
-    })
+// let url = "http://localhost/twitter/fetchdata_id.php";
+// let parameters = {
+//     method: 'POST',
+//     body: new URLSearchParams({
+//         id: localStorage.getItem("id")
+//     })
+// }
+// fetch(url, parameters)
+//     .then(response => response.json())
+//     .then(data => {
+//         // console.log(data)
+//         accountDetailsName.innerHTML = `${data[0]['firstname']} ${data[0]['lastname']}`
+//         accountDetailsUsername.innerHTML = `@${data[0]['username']}`
+//         accountImgEl.forEach((img) => {
+//             img.src = data[0]['image']
+//         })
+//     })
 
 searchEl.addEventListener('keyup', () => {
     let url = "http://localhost/twitter/search.php";

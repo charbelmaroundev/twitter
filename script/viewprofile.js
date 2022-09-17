@@ -29,6 +29,20 @@ const followrequest =document.querySelector('follow-btn');
 
 
 
+// fetch("http://localhost/twitter/fetchdata_id.php", {
+//     method: 'POST',
+//     body: new URLSearchParams({
+//         id: localStorage.getItem("destination")
+//     })
+// })
+//     .then(response => response.json())
+//     .then(data => {
+//         console.log(data);
+//         accountName1El.innerHTML = `${data[0]['firstname']} ${data[0]['lastname']}`
+//         profileUsernameNameEl.innerHTML = `${data[0]['firstname']} ${data[0]['lastname']}`
+//         profileUsernameUserEl.innerHTML = `@${data[0]['username']}`
+//         imageProfileImgEl.src = data[0]['image']
+//     })
 
 
 
@@ -38,18 +52,16 @@ const followrequest =document.querySelector('follow-btn');
 
 
 
-
-
-
-    loginBtnEl.addEventListener('click', (e) => {
+    followrequest.addEventListener('click', (e) => {
         e.preventDefault()
 
     fetch("http://localhost/twitter/addfollower.php", {
         method: 'POST',
         body: new URLSearchParams({
-            id:localStorage.getItem("id"),
-            blockedid: localStorage.getItem("destination")
-
+            // id:localStorage.getItem("id"),
+            // blockedid: localStorage.getItem("destination")
+            id:233,
+            blockedid: 319
         })
     })
         .then(response => response.json())
@@ -60,7 +72,7 @@ const followrequest =document.querySelector('follow-btn');
         })
 
 
-    }
+    })
 
 
 

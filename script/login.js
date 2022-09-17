@@ -88,37 +88,37 @@ loginBtnEl.addEventListener('click', (e) => {
             password: loginPasswordEl.value,
         })
     }
-    fetch(url, parameters)
-        .then(response => response.json())
-        .then(data => {
-
-            if (data) {
-                wrongUsernamePasswordEl.innerHTML = "Logged in"
-                wrongUsernamePasswordEl.style.color = "green"
-                wrongUsernamePasswordEl.classList.remove("opacity")
-                window.setTimeout(function () {
-                    window.location.href = 'homepage.html';
-                }, 5000);
-
-                localStorage.setItem("logged", true);
-                localStorage.setItem("id", data);
-
-                let url = "http://localhost/twitter/fetchdata_id.php";
-                let parameters = {
-                    method: 'POST',
-                    body: new URLSearchParams({
-                        id: data
-                    })
-                }
-                fetch(url, parameters)
-                    .then(response => response.json())
-                    .then(data => console.log(data))
-            } else {
-                wrongUsernamePasswordEl.style.color = "red"
-                wrongUsernamePasswordEl.classList.remove("opacity")
-                wrongUsernamePasswordEl.innerHTML = "Your username and password are wrong!"
-                localStorage.setItem("logged", false);
-
-            }
-        })
+    // fetch(url, parameters)
+    //     .then(response => response.json())
+    //     .then(data => {
+    //
+    //         if (data) {
+    //             wrongUsernamePasswordEl.innerHTML = "Logged in"
+    //             wrongUsernamePasswordEl.style.color = "green"
+    //             wrongUsernamePasswordEl.classList.remove("opacity")
+    //             window.setTimeout(function () {
+    //                 window.location.href = 'homepage.html';
+    //             }, 5000);
+    //
+    //             localStorage.setItem("logged", true);
+    //             localStorage.setItem("id", data);
+    //
+    //             let url = "http://localhost/twitter/fetchdata_id.php";
+    //             let parameters = {
+    //                 method: 'POST',
+    //                 body: new URLSearchParams({
+    //                     id: data
+    //                 })
+    //             }
+    //             fetch(url, parameters)
+    //                 .then(response => response.json())
+    //                 .then(data => console.log(data))
+    //         } else {
+    //             wrongUsernamePasswordEl.style.color = "red"
+    //             wrongUsernamePasswordEl.classList.remove("opacity")
+    //             wrongUsernamePasswordEl.innerHTML = "Your username and password are wrong!"
+    //             localStorage.setItem("logged", false);
+    //
+    //         }
+    //     })
 })
