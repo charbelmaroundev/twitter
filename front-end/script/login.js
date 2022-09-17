@@ -43,7 +43,7 @@ backdropEl2.addEventListener('click', close2)
 
 registerbBtnEl.addEventListener('click', (e) => {
     e.preventDefault()
-
+    let defaultImage = "./assets/profile.png"
     let url = "http://localhost/twitter/register.php";
     let parameters = {
         method: 'POST',
@@ -53,6 +53,7 @@ registerbBtnEl.addEventListener('click', (e) => {
             username: signupUsernameEl.value,
             email: signupEmailEl.value,
             password: signupPasswordEl.value,
+            image: defaultImage
         })
     }
     fetch(url, parameters)

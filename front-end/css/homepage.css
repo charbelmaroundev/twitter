@@ -358,6 +358,38 @@ main {
     font-weight: 400;
 }
 
+.none {
+    display: none;
+}
+
+.search-results {
+    box-shadow: 4px 4px 10px gray;
+    width: 55%;
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+
+.result {
+    display: flex;
+    align-items: flex-start;
+}
+
+.result div {
+    margin: 1rem;
+}
+
+.results-username {
+    color: #63727e;
+    font-size: 1.2rem;
+}
+
+.result img {
+    margin: 1rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
 /* /////////////////////////// */
 /* MEDIA QUERY 1800px */
 /* /////////////////////////// */

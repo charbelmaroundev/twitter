@@ -3,6 +3,7 @@ const accountDetailsUsernameEl = document.querySelector('.account-details-userna
 const accountDetailsName = document.querySelector('.account-details-name')
 const accountDetailsUsername = document.querySelector('.account-details-username')
 const searchEl = document.getElementById('search');
+const searchResultsEl = document.querySelector('.search-results');
 
 let url = "http://localhost/twitter/fetchdata_id.php";
 let parameters = {
@@ -23,7 +24,7 @@ fetch(url, parameters)
     })
 
 searchEl.addEventListener('keyup', () => {
-    console.log(searchEl.value)
+    // console.log(searchEl.value)
     let url = "http://localhost/twitter/search.php";
     let parameters = {
         method: 'POST',
@@ -34,6 +35,24 @@ searchEl.addEventListener('keyup', () => {
     fetch(url, parameters)
         .then(response => response.json())
         .then(data => {
-            console.log(data)
+            searchResultsEl.classList.remove('none');
+            const results = []
+            for (let i = 0; i < data.length; i++) {
+                let result = `
+                <div class="result">
+                    <div>
+                        <img src="${data[i]['image']}" alt="">
+                    </div>
+                    <div>
+                        <h1>${data[i]['firstname']} ${data[i]['lastname']}</h1>
+                        <h1 class="results-username">@${data[i]['username']}</h1>
+                    </div>
+                </div>
+                `
+                results.push(result)
+            }
+            searchResultsEl.innerHTML = results
+
+
         })
 })
