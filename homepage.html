@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home / Twitter</title>
+    <link rel="stylesheet" href="css/homepage.css">
+    <link rel="shortcut icon" href="" type="image/x-icon">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header>
+        <!-- NAVBAR -->
+        <div class="navbar">
+            <a href="#">
+                <svg viewBox="0 0 24 24" fill="#249ef0" aria-hidden="true" class="navbar-icon">
+                    <g>
+                        <path
+                            d="M23.643 4.937c-.835.37-1.732.62-2.675.733.962-.576 1.7-1.49 2.048-2.578-.9.534-1.897.922-2.958 1.13-.85-.904-2.06-1.47-3.4-1.47-2.572 0-4.658 2.086-4.658 4.66 0 .364.042.718.12 1.06-3.873-.195-7.304-2.05-9.602-4.868-.4.69-.63 1.49-.63 2.342 0 1.616.823 3.043 2.072 3.878-.764-.025-1.482-.234-2.11-.583v.06c0 2.257 1.605 4.14 3.737 4.568-.392.106-.803.162-1.227.162-.3 0-.593-.028-.877-.082.593 1.85 2.313 3.198 4.352 3.234-1.595 1.25-3.604 1.995-5.786 1.995-.376 0-.747-.022-1.112-.065 2.062 1.323 4.51 2.093 7.14 2.093 8.57 0 13.255-7.098 13.255-13.254 0-.2-.005-.402-.014-.602.91-.658 1.7-1.477 2.323-2.41z">
+                        </path>
+                    </g>
+                </svg>
+            </a>
+            <a class="bold" href="#">
+                <svg viewBox="0 0 24 24" aria-hidden="true" class="navbar-icon">
+                    <g>
+                        <path
+                            d="M22.58 7.35L12.475 1.897c-.297-.16-.654-.16-.95 0L1.425 7.35c-.486.264-.667.87-.405 1.356.18.335.525.525.88.525.16 0 .324-.038.475-.12l.734-.396 1.59 11.25c.216 1.214 1.31 2.062 2.66 2.062h9.282c1.35 0 2.444-.848 2.662-2.088l1.588-11.225.737.398c.485.263 1.092.082 1.354-.404.263-.486.08-1.093-.404-1.355zM12 15.435c-1.795 0-3.25-1.455-3.25-3.25s1.455-3.25 3.25-3.25 3.25 1.455 3.25 3.25-1.455 3.25-3.25 3.25z">
+                        </path>
+                    </g>
+                </svg>
+                <span class="bold">Home</span>
+            </a>
+            <a href="profilepage.html">
+                <svg viewBox="0 0 24 24" aria-hidden="true" class="navbar-icon">
+                    <g>
+                        <path
+                            d="M12 11.816c1.355 0 2.872-.15 3.84-1.256.814-.93 1.078-2.368.806-4.392-.38-2.825-2.117-4.512-4.646-4.512S7.734 3.343 7.354 6.17c-.272 2.022-.008 3.46.806 4.39.968 1.107 2.485 1.256 3.84 1.256zM8.84 6.368c.162-1.2.787-3.212 3.16-3.212s2.998 2.013 3.16 3.212c.207 1.55.057 2.627-.45 3.205-.455.52-1.266.743-2.71.743s-2.255-.223-2.71-.743c-.507-.578-.657-1.656-.45-3.205zm11.44 12.868c-.877-3.526-4.282-5.99-8.28-5.99s-7.403 2.464-8.28 5.99c-.172.692-.028 1.4.395 1.94.408.52 1.04.82 1.733.82h12.304c.693 0 1.325-.3 1.733-.82.424-.54.567-1.247.394-1.94zm-1.576 1.016c-.126.16-.316.246-.552.246H5.848c-.235 0-.426-.085-.552-.246-.137-.174-.18-.412-.12-.654.71-2.855 3.517-4.85 6.824-4.85s6.114 1.994 6.824 4.85c.06.242.017.48-.12.654z">
+                        </path>
+                    </g>
+                </svg>
+                <span>Profile</span>
+            </a>
+        </div>
+        <!-- ACCOUNT -->
+        <div class="account">
+            <a href="profilepage.html">
+                <img class="account-img" src="assets/account-img.jpg" alt="">
+                <div class="account-details">
+                    <span class="account-details-name">Charbel Maroun</span>
+                    <span class="account-details-username">@CharbelDev</span>
+                </div>
+                <svg viewBox="0 0 24 24" aria-hidden="true" class="navbar-icon account-more">
+                    <g>
+                        <circle cx="5" cy="12" r="2"></circle>
+                        <circle cx="12" cy="12" r="2"></circle>
+                        <circle cx="19" cy="12" r="2"></circle>
+                    </g>
+                </svg>
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <!-- MAIN FLEX -->
+        <div class="main-flex">
+            <div class="main-section">
+                <!-- HOME BAR -->
+                <div class="home-bar">
+                    <span class="bold">Home</span>
+                </div>
+                <!-- NEW TWEET -->
+                <div class="new-tweet">
+                    <img class="account-img" src="assets/account-img.jpg" alt="">
+                    <div class="new-tweet-details">
+                        <input maxlength="280" type="text" placeholder="What's happening?">
+                        <div class="new-tweet-btns">
+                            <ul>
+                                <li>
+                                    <label for="file-input">
+                                        <svg viewBox="0 0 24 24" fill="#249ef0" aria-hidden="true"
+                                            class="new-tweet-icon">
+                                            <g>
+                                                <path
+                                                    d="M19.75 2H4.25C3.01 2 2 3.01 2 4.25v15.5C2 20.99 3.01 22 4.25 22h15.5c1.24 0 2.25-1.01 2.25-2.25V4.25C22 3.01 20.99 2 19.75 2zM4.25 3.5h15.5c.413 0 .75.337.75.75v9.676l-3.858-3.858c-.14-.14-.33-.22-.53-.22h-.003c-.2 0-.393.08-.532.224l-4.317 4.384-1.813-1.806c-.14-.14-.33-.22-.53-.22-.193-.03-.395.08-.535.227L3.5 17.642V4.25c0-.413.337-.75.75-.75zm-.744 16.28l5.418-5.534 6.282 6.254H4.25c-.402 0-.727-.322-.744-.72zm16.244.72h-2.42l-5.007-4.987 3.792-3.85 4.385 4.384v3.703c0 .413-.337.75-.75.75z">
+                                                </path>
+                                                <circle cx="8.868" cy="8.309" r="1.542"></circle>
+                                            </g>
+                                        </svg>
+                                    </label>
+                                    <input id="file-input" type="file" />
+                                </li>
+                            </ul>
+                            <button class="tweet-btn">Tweet</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- TWEETS -->
+                <div class="tweet">
+                    <img class="account-img" src="assets/account-img.jpg" alt="">
+                    <div class="tweet-details">
+                        <div class="tweeter-details">
+                            <a href="" class="tweeter-name">
+                                Charbel Maroun
+                                <span class="tweeter-handle">
+                                    @charbeldev · 1h
+                                </span>
+                            </a>
+                            <svg viewBox="0 0 24 24" aria-hidden="true" class="navbar-icon account-more">
+                                <g>
+                                    <circle cx="5" cy="12" r="2"></circle>
+                                    <circle cx="12" cy="12" r="2"></circle>
+                                    <circle cx="19" cy="12" r="2"></circle>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="tweet-text">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus culpa laudantium
+                                nostrum, omnis illo tempora aliquid eligendi cupiditate odit aperiam error a assumenda.
+                                Animi illo mollitia commodi at aut saepe.</p>
+                        </div>
+                        <div class="tweet-icons">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" class="like-icon">
+                                <g>
+                                    <path
+                                        d="M12 21.638h-.014C9.403 21.59 1.95 14.856 1.95 8.478c0-3.064 2.525-5.754 5.403-5.754 2.29 0 3.83 1.58 4.646 2.73.814-1.148 2.354-2.73 4.645-2.73 2.88 0 5.404 2.69 5.404 5.755 0 6.376-7.454 13.11-10.037 13.157H12zM7.354 4.225c-2.08 0-3.903 1.988-3.903 4.255 0 5.74 7.034 11.596 8.55 11.658 1.518-.062 8.55-5.917 8.55-11.658 0-2.267-1.823-4.255-3.903-4.255-2.528 0-3.94 2.936-3.952 2.965-.23.562-1.156.562-1.387 0-.014-.03-1.425-2.965-3.954-2.965z">
+                                    </path>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="tweet">
+                    <img class="account-img" src="assets/account-img.jpg" alt="">
+                    <div class="tweet-details">
+                        <div class="tweeter-details">
+                            <a href="" class="tweeter-name">
+                                Charbel Maroun
+                                <span class="tweeter-handle">
+                                    @charbeldev · 1h
+                                </span>
+                            </a>
+                            <svg viewBox="0 0 24 24" aria-hidden="true" class="navbar-icon account-more">
+                                <g>
+                                    <circle cx="5" cy="12" r="2"></circle>
+                                    <circle cx="12" cy="12" r="2"></circle>
+                                    <circle cx="19" cy="12" r="2"></circle>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="tweet-text">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus culpa laudantium
+                                nostrum, omnis illo tempora aliquid eligendi cupiditate odit aperiam error a assumenda.
+                                Animi illo mollitia commodi at aut saepe.</p>
+                        </div>
+                        <div class="tweet-icons">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" class="like-icon">
+                                <g>
+                                    <path
+                                        d="M12 21.638h-.014C9.403 21.59 1.95 14.856 1.95 8.478c0-3.064 2.525-5.754 5.403-5.754 2.29 0 3.83 1.58 4.646 2.73.814-1.148 2.354-2.73 4.645-2.73 2.88 0 5.404 2.69 5.404 5.755 0 6.376-7.454 13.11-10.037 13.157H12zM7.354 4.225c-2.08 0-3.903 1.988-3.903 4.255 0 5.74 7.034 11.596 8.55 11.658 1.518-.062 8.55-5.917 8.55-11.658 0-2.267-1.823-4.255-3.903-4.255-2.528 0-3.94 2.936-3.952 2.965-.23.562-1.156.562-1.387 0-.014-.03-1.425-2.965-3.954-2.965z">
+                                    </path>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="tweet">
+                    <img class="account-img" src="assets/account-img.jpg" alt="">
+                    <div class="tweet-details">
+                        <div class="tweeter-details">
+                            <a href="" class="tweeter-name">
+                                Charbel Maroun
+                                <span class="tweeter-handle">
+                                    @charbeldev · 1h
+                                </span>
+                            </a>
+                            <svg viewBox="0 0 24 24" aria-hidden="true" class="navbar-icon account-more">
+                                <g>
+                                    <circle cx="5" cy="12" r="2"></circle>
+                                    <circle cx="12" cy="12" r="2"></circle>
+                                    <circle cx="19" cy="12" r="2"></circle>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="tweet-text">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus culpa laudantium
+                                nostrum, omnis illo tempora aliquid eligendi cupiditate odit aperiam error a assumenda.
+                                Animi illo mollitia commodi at aut saepe.</p>
+                        </div>
+                        <div class="tweet-icons">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" class="like-icon">
+                                <g>
+                                    <path
+                                        d="M12 21.638h-.014C9.403 21.59 1.95 14.856 1.95 8.478c0-3.064 2.525-5.754 5.403-5.754 2.29 0 3.83 1.58 4.646 2.73.814-1.148 2.354-2.73 4.645-2.73 2.88 0 5.404 2.69 5.404 5.755 0 6.376-7.454 13.11-10.037 13.157H12zM7.354 4.225c-2.08 0-3.903 1.988-3.903 4.255 0 5.74 7.034 11.596 8.55 11.658 1.518-.062 8.55-5.917 8.55-11.658 0-2.267-1.823-4.255-3.903-4.255-2.528 0-3.94 2.936-3.952 2.965-.23.562-1.156.562-1.387 0-.014-.03-1.425-2.965-3.954-2.965z">
+                                    </path>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="tweet">
+                    <img class="account-img" src="assets/account-img.jpg" alt="">
+                    <div class="tweet-details">
+                        <div class="tweeter-details">
+                            <a href="" class="tweeter-name">
+                                Charbel Maroun
+                                <span class="tweeter-handle">
+                                    @charbeldev · 1h
+                                </span>
+                            </a>
+                            <svg viewBox="0 0 24 24" aria-hidden="true" class="navbar-icon account-more">
+                                <g>
+                                    <circle cx="5" cy="12" r="2"></circle>
+                                    <circle cx="12" cy="12" r="2"></circle>
+                                    <circle cx="19" cy="12" r="2"></circle>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="tweet-text">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus culpa laudantium
+                                nostrum, omnis illo tempora aliquid eligendi cupiditate odit aperiam error a assumenda.
+                                Animi illo mollitia commodi at aut saepe.</p>
+                        </div>
+                        <div class="tweet-icons">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" class="like-icon">
+                                <g>
+                                    <path
+                                        d="M12 21.638h-.014C9.403 21.59 1.95 14.856 1.95 8.478c0-3.064 2.525-5.754 5.403-5.754 2.29 0 3.83 1.58 4.646 2.73.814-1.148 2.354-2.73 4.645-2.73 2.88 0 5.404 2.69 5.404 5.755 0 6.376-7.454 13.11-10.037 13.157H12zM7.354 4.225c-2.08 0-3.903 1.988-3.903 4.255 0 5.74 7.034 11.596 8.55 11.658 1.518-.062 8.55-5.917 8.55-11.658 0-2.267-1.823-4.255-3.903-4.255-2.528 0-3.94 2.936-3.952 2.965-.23.562-1.156.562-1.387 0-.014-.03-1.425-2.965-3.954-2.965z">
+                                    </path>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="tweet">
+                    <img class="account-img" src="assets/account-img.jpg" alt="">
+                    <div class="tweet-details">
+                        <div class="tweeter-details">
+                            <a href="" class="tweeter-name">
+                                Charbel Maroun
+                                <span class="tweeter-handle">
+                                    @charbeldev · 1h
+                                </span>
+                            </a>
+                            <svg viewBox="0 0 24 24" aria-hidden="true" class="navbar-icon account-more">
+                                <g>
+                                    <circle cx="5" cy="12" r="2"></circle>
+                                    <circle cx="12" cy="12" r="2"></circle>
+                                    <circle cx="19" cy="12" r="2"></circle>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="tweet-text">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus culpa laudantium
+                                nostrum, omnis illo tempora aliquid eligendi cupiditate odit aperiam error a assumenda.
+                                Animi illo mollitia commodi at aut saepe.</p>
+                        </div>
+                        <div class="tweet-icons">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" class="like-icon">
+                                <g>
+                                    <path
+                                        d="M12 21.638h-.014C9.403 21.59 1.95 14.856 1.95 8.478c0-3.064 2.525-5.754 5.403-5.754 2.29 0 3.83 1.58 4.646 2.73.814-1.148 2.354-2.73 4.645-2.73 2.88 0 5.404 2.69 5.404 5.755 0 6.376-7.454 13.11-10.037 13.157H12zM7.354 4.225c-2.08 0-3.903 1.988-3.903 4.255 0 5.74 7.034 11.596 8.55 11.658 1.518-.062 8.55-5.917 8.55-11.658 0-2.267-1.823-4.255-3.903-4.255-2.528 0-3.94 2.936-3.952 2.965-.23.562-1.156.562-1.387 0-.014-.03-1.425-2.965-3.954-2.965z">
+                                    </path>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="tweet">
+                    <img class="account-img" src="assets/account-img.jpg" alt="">
+                    <div class="tweet-details">
+                        <div class="tweeter-details">
+                            <a href="" class="tweeter-name">
+                                Charbel Maroun
+                                <span class="tweeter-handle">
+                                    @charbeldev · 1h
+                                </span>
+                            </a>
+                            <svg viewBox="0 0 24 24" aria-hidden="true" class="navbar-icon account-more">
+                                <g>
+                                    <circle cx="5" cy="12" r="2"></circle>
+                                    <circle cx="12" cy="12" r="2"></circle>
+                                    <circle cx="19" cy="12" r="2"></circle>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="tweet-text">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus culpa laudantium
+                                nostrum, omnis illo tempora aliquid eligendi cupiditate odit aperiam error a assumenda.
+                                Animi illo mollitia commodi at aut saepe.</p>
+                        </div>
+                        <div class="tweet-icons">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" class="like-icon">
+                                <g>
+                                    <path
+                                        d="M12 21.638h-.014C9.403 21.59 1.95 14.856 1.95 8.478c0-3.064 2.525-5.754 5.403-5.754 2.29 0 3.83 1.58 4.646 2.73.814-1.148 2.354-2.73 4.645-2.73 2.88 0 5.404 2.69 5.404 5.755 0 6.376-7.454 13.11-10.037 13.157H12zM7.354 4.225c-2.08 0-3.903 1.988-3.903 4.255 0 5.74 7.034 11.596 8.55 11.658 1.518-.062 8.55-5.917 8.55-11.658 0-2.267-1.823-4.255-3.903-4.255-2.528 0-3.94 2.936-3.952 2.965-.23.562-1.156.562-1.387 0-.014-.03-1.425-2.965-3.954-2.965z">
+                                    </path>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="tweet">
+                    <img class="account-img" src="assets/account-img.jpg" alt="">
+                    <div class="tweet-details">
+                        <div class="tweeter-details">
+                            <a href="" class="tweeter-name">
+                                Charbel Maroun
+                                <span class="tweeter-handle">
+                                    @charbeldev · 1h
+                                </span>
+                            </a>
+                            <svg viewBox="0 0 24 24" aria-hidden="true" class="navbar-icon account-more">
+                                <g>
+                                    <circle cx="5" cy="12" r="2"></circle>
+                                    <circle cx="12" cy="12" r="2"></circle>
+                                    <circle cx="19" cy="12" r="2"></circle>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="tweet-text">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus culpa laudantium
+                                nostrum, omnis illo tempora aliquid eligendi cupiditate odit aperiam error a assumenda.
+                                Animi illo mollitia commodi at aut saepe.</p>
+                        </div>
+                        <div class="tweet-icons">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" class="like-icon">
+                                <g>
+                                    <path
+                                        d="M12 21.638h-.014C9.403 21.59 1.95 14.856 1.95 8.478c0-3.064 2.525-5.754 5.403-5.754 2.29 0 3.83 1.58 4.646 2.73.814-1.148 2.354-2.73 4.645-2.73 2.88 0 5.404 2.69 5.404 5.755 0 6.376-7.454 13.11-10.037 13.157H12zM7.354 4.225c-2.08 0-3.903 1.988-3.903 4.255 0 5.74 7.034 11.596 8.55 11.658 1.518-.062 8.55-5.917 8.55-11.658 0-2.267-1.823-4.255-3.903-4.255-2.528 0-3.94 2.936-3.952 2.965-.23.562-1.156.562-1.387 0-.014-.03-1.425-2.965-3.954-2.965z">
+                                    </path>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="tweet">
+                    <img class="account-img" src="assets/account-img.jpg" alt="">
+                    <div class="tweet-details">
+                        <div class="tweeter-details">
+                            <a href="" class="tweeter-name">
+                                Charbel Maroun
+                                <span class="tweeter-handle">
+                                    @charbeldev · 1h
+                                </span>
+                            </a>
+                            <svg viewBox="0 0 24 24" aria-hidden="true" class="navbar-icon account-more">
+                                <g>
+                                    <circle cx="5" cy="12" r="2"></circle>
+                                    <circle cx="12" cy="12" r="2"></circle>
+                                    <circle cx="19" cy="12" r="2"></circle>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="tweet-text">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus culpa laudantium
+                                nostrum, omnis illo tempora aliquid eligendi cupiditate odit aperiam error a assumenda.
+                                Animi illo mollitia commodi at aut saepe.</p>
+                        </div>
+                        <div class="tweet-icons">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" class="like-icon">
+                                <g>
+                                    <path
+                                        d="M12 21.638h-.014C9.403 21.59 1.95 14.856 1.95 8.478c0-3.064 2.525-5.754 5.403-5.754 2.29 0 3.83 1.58 4.646 2.73.814-1.148 2.354-2.73 4.645-2.73 2.88 0 5.404 2.69 5.404 5.755 0 6.376-7.454 13.11-10.037 13.157H12zM7.354 4.225c-2.08 0-3.903 1.988-3.903 4.255 0 5.74 7.034 11.596 8.55 11.658 1.518-.062 8.55-5.917 8.55-11.658 0-2.267-1.823-4.255-3.903-4.255-2.528 0-3.94 2.936-3.952 2.965-.23.562-1.156.562-1.387 0-.014-.03-1.425-2.965-3.954-2.965z">
+                                    </path>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="tweet">
+                    <img class="account-img" src="assets/account-img.jpg" alt="">
+                    <div class="tweet-details">
+                        <div class="tweeter-details">
+                            <a href="" class="tweeter-name">
+                                Charbel Maroun
+                                <span class="tweeter-handle">
+                                    @charbeldev · 1h
+                                </span>
+                            </a>
+                            <svg viewBox="0 0 24 24" aria-hidden="true" class="navbar-icon account-more">
+                                <g>
+                                    <circle cx="5" cy="12" r="2"></circle>
+                                    <circle cx="12" cy="12" r="2"></circle>
+                                    <circle cx="19" cy="12" r="2"></circle>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="tweet-text">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus culpa laudantium
+                                nostrum, omnis illo tempora aliquid eligendi cupiditate odit aperiam error a assumenda.
+                                Animi illo mollitia commodi at aut saepe.</p>
+                        </div>
+                        <div class="tweet-icons">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" class="like-icon">
+                                <g>
+                                    <path
+                                        d="M12 21.638h-.014C9.403 21.59 1.95 14.856 1.95 8.478c0-3.064 2.525-5.754 5.403-5.754 2.29 0 3.83 1.58 4.646 2.73.814-1.148 2.354-2.73 4.645-2.73 2.88 0 5.404 2.69 5.404 5.755 0 6.376-7.454 13.11-10.037 13.157H12zM7.354 4.225c-2.08 0-3.903 1.988-3.903 4.255 0 5.74 7.034 11.596 8.55 11.658 1.518-.062 8.55-5.917 8.55-11.658 0-2.267-1.823-4.255-3.903-4.255-2.528 0-3.94 2.936-3.952 2.965-.23.562-1.156.562-1.387 0-.014-.03-1.425-2.965-3.954-2.965z">
+                                    </path>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="tweet">
+                    <img class="account-img" src="assets/account-img.jpg" alt="">
+                    <div class="tweet-details">
+                        <div class="tweeter-details">
+                            <a href="" class="tweeter-name">
+                                Charbel Maroun
+                                <span class="tweeter-handle">
+                                    @charbeldev · 1h
+                                </span>
+                            </a>
+                            <svg viewBox="0 0 24 24" aria-hidden="true" class="navbar-icon account-more">
+                                <g>
+                                    <circle cx="5" cy="12" r="2"></circle>
+                                    <circle cx="12" cy="12" r="2"></circle>
+                                    <circle cx="19" cy="12" r="2"></circle>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="tweet-text">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus culpa laudantium
+                                nostrum, omnis illo tempora aliquid eligendi cupiditate odit aperiam error a assumenda.
+                                Animi illo mollitia commodi at aut saepe.</p>
+                        </div>
+                        <div class="tweet-icons">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" class="like-icon">
+                                <g>
+                                    <path
+                                        d="M12 21.638h-.014C9.403 21.59 1.95 14.856 1.95 8.478c0-3.064 2.525-5.754 5.403-5.754 2.29 0 3.83 1.58 4.646 2.73.814-1.148 2.354-2.73 4.645-2.73 2.88 0 5.404 2.69 5.404 5.755 0 6.376-7.454 13.11-10.037 13.157H12zM7.354 4.225c-2.08 0-3.903 1.988-3.903 4.255 0 5.74 7.034 11.596 8.55 11.658 1.518-.062 8.55-5.917 8.55-11.658 0-2.267-1.823-4.255-3.903-4.255-2.528 0-3.94 2.936-3.952 2.965-.23.562-1.156.562-1.387 0-.014-.03-1.425-2.965-3.954-2.965z">
+                                    </path>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="tweet">
+                    <img class="account-img" src="assets/account-img.jpg" alt="">
+                    <div class="tweet-details">
+                        <div class="tweeter-details">
+                            <a href="" class="tweeter-name">
+                                Charbel Maroun
+                                <span class="tweeter-handle">
+                                    @charbeldev · 1h
+                                </span>
+                            </a>
+                            <svg viewBox="0 0 24 24" aria-hidden="true" class="navbar-icon account-more">
+                                <g>
+                                    <circle cx="5" cy="12" r="2"></circle>
+                                    <circle cx="12" cy="12" r="2"></circle>
+                                    <circle cx="19" cy="12" r="2"></circle>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="tweet-text">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus culpa laudantium
+                                nostrum, omnis illo tempora aliquid eligendi cupiditate odit aperiam error a assumenda.
+                                Animi illo mollitia commodi at aut saepe.</p>
+                        </div>
+                        <div class="tweet-icons">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" class="like-icon">
+                                <g>
+                                    <path
+                                        d="M12 21.638h-.014C9.403 21.59 1.95 14.856 1.95 8.478c0-3.064 2.525-5.754 5.403-5.754 2.29 0 3.83 1.58 4.646 2.73.814-1.148 2.354-2.73 4.645-2.73 2.88 0 5.404 2.69 5.404 5.755 0 6.376-7.454 13.11-10.037 13.157H12zM7.354 4.225c-2.08 0-3.903 1.988-3.903 4.255 0 5.74 7.034 11.596 8.55 11.658 1.518-.062 8.55-5.917 8.55-11.658 0-2.267-1.823-4.255-3.903-4.255-2.528 0-3.94 2.936-3.952 2.965-.23.562-1.156.562-1.387 0-.014-.03-1.425-2.965-3.954-2.965z">
+                                    </path>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LEFT SECTION -->
+            <div class="side-section">
+                <div class="sticky">
+                    <!-- SEARCH BAR -->
+                    <div class="search">
+                        <svg viewBox="0 0 24 24" aria-hidden="true" class="search-icon">
+                            <g>
+                                <path
+                                    d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z">
+                                </path>
+                            </g>
+                        </svg>
+                        <input type="text" placeholder="Search Twitter">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
