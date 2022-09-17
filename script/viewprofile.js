@@ -4,7 +4,7 @@ const profileUsernameUserEl = document.querySelector('.profile-username-user');
 const imageProfileImgEl = document.querySelector('.image-profile-img');
 const accountImg1El = document.querySelector('.account-img');
 const followrequest =document.querySelector('.follow-btn');
-
+const more_button =document.querySelector('.more');
 
 
 
@@ -76,7 +76,27 @@ const followrequest =document.querySelector('.follow-btn');
 
 
 
+    more_button.addEventListener('click', (e) => {
+        e.preventDefault()
 
+    fetch("http://localhost/twitter/addfollower.php", {
+        method: 'POST',
+        body: new URLSearchParams({
+            // follower_id:localStorage.getItem("id"),
+            // following_id: localStorage.getItem("destination")
+            follower_id:233,
+            following_id: 319
+        })
+    })
+        .then(response => response.json())
+        .then(data => {
+
+            console.log(data);
+
+        })
+
+
+    })
 
 
 
