@@ -119,6 +119,7 @@ fetch("http://localhost/twitter/countfollowers.php", {       //Fetch block user 
         console.log(data);
 
         followerscount.innerHTML = data;
+        followerscount.append(" Followers")
     })
 
 
