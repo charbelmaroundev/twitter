@@ -56,14 +56,14 @@ editSaveEl.addEventListener("click", () => {
                     .then(response => response.json())
                     .then(data => {
                         updateProfile();
-                    })
+                    });
             });
             FR.readAsDataURL(editImgEl.files[0]);
-        }
+        };
         readFile(editImgEl);
-    }
+    };
     close();
-})
+});
 
 editBtnEL.addEventListener('click', close);
 backdropEl.addEventListener('click', close);
