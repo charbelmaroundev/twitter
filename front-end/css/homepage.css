@@ -306,6 +306,12 @@ main {
     width: 100%;
 }
 
+.tweet-img {
+    margin: 2rem 0;
+    width: 100%;
+    border-radius: 15px;
+}
+
 .tweet-icons {
     margin: 1.5rem 0;
 }
