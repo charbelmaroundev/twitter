@@ -6,6 +6,7 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorizatio
 
 include("connection.php");
 
+
 $id = $_POST["id"];
 $firstname = $_POST["firstname"];
 $lastname = $_POST["lastname"];
