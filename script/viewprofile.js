@@ -102,6 +102,9 @@ const followingcount=document.querySelector('.profile-following');
 
 
 
+
+
+
     // Following count
 
     fetch("http://localhost/twitter/countfollowing.php", {       //Fetch block user api
@@ -120,8 +123,6 @@ const followingcount=document.querySelector('.profile-following');
             followingcount.innerHTML = data;
             followingcount.append(" Followings")
         })
-
-
 
 
 
