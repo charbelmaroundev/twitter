@@ -5,7 +5,7 @@ const imageProfileImgEl = document.querySelector('.image-profile-img');
 const accountImg1El = document.querySelector('.account-img');
 const followrequest =document.querySelector('.follow-btn');
 const more_button =document.querySelector('.more');
-
+const followerscount=document.querySelector('.profile-followers');
 
 
 
@@ -118,10 +118,11 @@ fetch("http://localhost/twitter/countfollowers.php", {       //Fetch block user 
 
         console.log(data);
 
+        followerscount.innerHTML = data;
     })
 
 
-})
+
 
 
 
