@@ -183,14 +183,14 @@
 }
 
 .more {
-    border-radius: 50px;
-    border: 1px solid #536471;
-    margin-top: 7rem;
-    margin-right: 1rem;
-    cursor: pointer;
-    width: 4rem;
-    height: 4rem;
-    padding: 0.6rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+  padding: 0.7rem 1.5rem;
+  border-radius: 50px;
+  margin-top: 7rem;
+  cursor: pointer;
+  background-color: black;
+  color: white;
 }
 
 .profile-username-follow {

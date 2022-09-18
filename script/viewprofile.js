@@ -75,6 +75,63 @@ followrequest.addEventListener('click', (e) => { // add follow button functional
 
 
 
+    // Block user button
+    block_button_toggle = false;
+    more_button.addEventListener('click', (e) => { //add button functionality
+      e.preventDefault()
+      block_button_toggle =!block_button_toggle;
+
+      if (block_button_toggle == true) {
+      fetch("http://localhost/twitter/blockuser.php", { //Fetch block user api
+          method: 'POST',
+          body: new URLSearchParams({ //send user id to block
+            user_id: localStorage.getItem("id"),
+            blocked_id: localStorage.getItem("destination")
+          })
+        })
+        .then(response => response.json())
+        .then(data => {
+          more_button.innerHTML="UnBlock";
+          console.log(data);
+
+        })
+
+
+    }
+
+
+    else {
+     fetch("http://localhost/twitter/unblockuser.php", { //Fetch add follower api
+         method: 'POST',
+         body: new URLSearchParams({
+           user_id: localStorage.getItem("id"),
+           blocked_id: localStorage.getItem("destination")
+         })
+       })
+       .then(response => response.json())
+       .then(data => {
+         more_button.innerHTML="Block";
+         console.log(data);
+
+       })
+
+
+   }
+ })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -115,29 +172,5 @@ followrequest.addEventListener('click', (e) => { // add follow button functional
       console.log(data);
 
       followerscount.innerHTML = `${data} Followers`;
-
-    })
-
-
-
-    // Block user button
-
-    more_button.addEventListener('click', (e) => { //add button functionality
-      e.preventDefault()
-
-      fetch("http://localhost/twitter/blockuser.php", { //Fetch block user api
-          method: 'POST',
-          body: new URLSearchParams({ //send user id to block
-            user_id: localStorage.getItem("id"),
-            blocked_id: localStorage.getItem("destination")
-          })
-        })
-        .then(response => response.json())
-        .then(data => {
-
-          console.log(data);
-
-        })
-
 
     })
