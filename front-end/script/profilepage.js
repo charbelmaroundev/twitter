@@ -42,7 +42,7 @@ editSaveEl.addEventListener("click", () => {
         const FR = new FileReader();
         FR.addEventListener("load", (evt) => {
             srcData = evt.target.result
-            console.log(srcData);
+            // console.log(srcData);
             const [first, last] = editNameEl.value.split(' ');
             fetch('http://localhost/twitter/editprofile.php', {
                 method: 'POST',
@@ -54,15 +54,19 @@ editSaveEl.addEventListener("click", () => {
                 })
             })
                 .then(response => response.json())
-                .then(data => console.log(data))
+                .then(data => {
+                    console.log(data);
+                    updateProfile()
+                })
         });
         FR.readAsDataURL(editImgEl.files[0]);
 
     }
     readFile(editImgEl);
-    updateProfile();
+
     close();
 })
+
 
 editBtnEL.addEventListener('click', close)
 backdropEl.addEventListener('click', close)
