@@ -3,6 +3,9 @@ const accountDetailsUsernameEl = document.querySelector('.account-details-userna
 const accountDetailsName = document.querySelector('.account-details-name');
 const searchEl = document.getElementById('search');
 const searchResultsEl = document.querySelector('.search-results');
+const tweetTextEl = document.getElementById('tweet-text')
+const tweetBtnEl = document.querySelector('.tweet-btn');
+const fileInputEl = document.getElementById('file-input')
 
 let url = "http://localhost/twitter/fetchdata_id.php";
 let parameters = {
@@ -53,8 +56,40 @@ searchEl.addEventListener('keyup', () => {
             resultEl.forEach((accounts) => {
                 accounts.addEventListener('click', (accounts) => {
                     localStorage.setItem("destination", accounts.path[2].id);
-                    window.location.href = 'viewprofile.html';
+
+                    if (localStorage.getItem("destination") == localStorage.getItem("id")) {
+                        window.location.href = 'profilepage.html';
+                    } else {
+                        window.location.href = 'viewprofile.html';
+                    }
+
                 });
             });
         });
 });
+
+tweetBtnEl.addEventListener('click', () => {
+    // console.log(tweetTextEl.value);
+    if (fileInputEl.files[0] != undefined) {
+        const readFile = fileInputEl => {
+            const FR = new FileReader();
+            FR.addEventListener("load", (evt) => {
+                srcData = evt.target.result;
+                fetch('http://localhost/twitter/tweet.php', {
+                    method: 'POST',
+                    body: new URLSearchParams({
+                        tweet_text: tweetTextEl.value,
+                        tweet_image: srcData,
+                        user_id: localStorage.getItem("id")
+                    })
+                })
+                    .then(response => response.json())
+                    .then(data => data);
+                // console.log(tweetTextEl.value);
+                // console.log(srcData);
+            });
+            FR.readAsDataURL(fileInputEl.files[0]);
+        };
+        readFile(fileInputEl);
+    };
+})
