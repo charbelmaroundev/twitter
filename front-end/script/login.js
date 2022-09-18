@@ -88,6 +88,8 @@ loginBtnEl.addEventListener('click', (e) => {
         .then(response => response.json())
         .then(data => {
 
+            loginUsernameEl.value = "";
+            loginPasswordEl.value = "";
             if (data) {
                 wrongUsernamePasswordEl.innerHTML = "Logged in";
                 wrongUsernamePasswordEl.style.color = "green";
