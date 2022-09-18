@@ -26,8 +26,36 @@ fetch("http://localhost/twitter/fetchdata_id.php", {
 
 
 
+
+// follow user button status
+fetch("http://localhost/twitter/followstatus.php", { //Fetch follower status api
+    method: 'POST',
+    body: new URLSearchParams({
+        follower_id: localStorage.getItem("id"),
+        following_id: localStorage.getItem("destination")
+    })
+})
+    .then(response => response.json())
+    .then(data => {
+        if (data == 1) { //If the user is already a follower , change the button to unfollow
+            followrequest.innerHTML = "Unfollow";
+            follow_button_toggle = true;
+            console.log(data);
+
+        } else { // else if the user is now a follower, change the button to follow
+            followrequest.innerHTML = "Follow";
+            follow_button_toggle = false;
+
+        }
+
+    })
+
+
+
+
+
 // follow user button
-follow_button_toggle = false;
+// follow_button_toggle = false;
 
 followrequest.addEventListener('click', (e) => { // add follow button functionality
     e.preventDefault()
@@ -113,6 +141,28 @@ fetch("http://localhost/twitter/countfollowers.php", {       //Fetch block user 
     })
 
 
+
+// Block user button status
+fetch("http://localhost/twitter/blockstatus.php", { //Fetch block status api
+    method: 'POST',
+    body: new URLSearchParams({
+        //blocked_id: localStorage.getItem("id"),
+        blocked_id: localStorage.getItem("destination")
+    })
+})
+    .then(response => response.json())
+    .then(data => {
+        if (data == 1) { //If the user is already blocked , change the button to unblock
+            more_button.innerHTML = "UnBlock";
+            block_button_toggle = true;
+
+        } else { // else if the user is not blocked, change the button to Block
+            more_button.innerHTML = "Block";
+            block_button_toggle = false;
+
+        }
+
+    })
 
 // Block user button
 block_button_toggle = false;
