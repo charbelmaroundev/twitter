@@ -16,7 +16,6 @@ $query->bind_param("ss", $follower_id , $following_id);
 $query->execute();
 
 
-
 $response = [];
 $response["success"] = true;
 
