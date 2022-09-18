@@ -26,179 +26,186 @@ fetch("http://localhost/twitter/fetchdata_id.php", {
 
 
 
-// follow user button
-  fetch("http://localhost/twitter/followstatus.php", { //Fetch follower status api
-      method: 'POST',
-      body: new URLSearchParams({
-        follower_id: localStorage.getItem("id"),
-        following_id: localStorage.getItem("destination")
-      })
+// follow user button status
+fetch("http://localhost/twitter/followstatus.php", { //Fetch follower status api
+    method: 'POST',
+    body: new URLSearchParams({
+      follower_id: localStorage.getItem("id"),
+      following_id: localStorage.getItem("destination")
     })
-    .then(response => response.json())
-    .then(data => {
-      if (data==1) { //If the user is already a follower , change the button to unfollow
-        followrequest.innerHTML="Unfollow";
-        follow_button_toggle = true;
-        console.log(data);
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data == 1) { //If the user is already a follower , change the button to unfollow
+      followrequest.innerHTML = "Unfollow";
+      follow_button_toggle = true;
+      console.log(data);
 
-      }
-      else{ // else if the user is now a follower, change the button to follow
-        followrequest.innerHTML="Follow";
-        follow_button_toggle = false;
+    } else { // else if the user is now a follower, change the button to follow
+      followrequest.innerHTML = "Follow";
+      follow_button_toggle = false;
 
-      }
+    }
 
-    })
-
-
-
+  })
 
 
 
 
 followrequest.addEventListener('click', (e) => { // add follow button functionality
-      e.preventDefault()
-      follow_button_toggle = !follow_button_toggle;
+  e.preventDefault()
+  follow_button_toggle = !follow_button_toggle;
 
-      //Toggle the button to follow and add to the destination follower
-      if (follow_button_toggle == true) {
-        fetch("http://localhost/twitter/addfollower.php", { //Fetch add follower api
-            method: 'POST',
-            body: new URLSearchParams({
-              follower_id: localStorage.getItem("id"),
-              following_id: localStorage.getItem("destination")
-            })
-          })
-          .then(response => response.json())
-          .then(data => {
-            followrequest.innerHTML="Unfollow";
-            location. reload();
-          })
-
-
-      //Unfollow user
-      }
-       else {
-        fetch("http://localhost/twitter/removefollower.php", { //Fetch add follower api
-            method: 'POST',
-            body: new URLSearchParams({
-              follower_id: localStorage.getItem("id"),
-              following_id: localStorage.getItem("destination")
-            })
-          })
-          .then(response => response.json())
-          .then(data => {
-          //  console.log("I am here");
-            followrequest.innerHTML="follow";
-              location. reload();
-        //    console.log(data);
-
-          })
+  //Toggle the button to follow and add to the destination follower
+  if (follow_button_toggle == true) {
+    fetch("http://localhost/twitter/addfollower.php", { //Fetch add follower api
+        method: 'POST',
+        body: new URLSearchParams({
+          follower_id: localStorage.getItem("id"),
+          following_id: localStorage.getItem("destination")
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        followrequest.innerHTML = "Unfollow";
+        location.reload();
+      })
 
 
-      }
+    //Unfollow user
+  } else {
+    fetch("http://localhost/twitter/removefollower.php", { //Fetch add follower api
+        method: 'POST',
+        body: new URLSearchParams({
+          follower_id: localStorage.getItem("id"),
+          following_id: localStorage.getItem("destination")
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        followrequest.innerHTML = "follow";
+        location.reload();
+
+
+      })
+
+
+  }
+})
+
+
+
+
+
+
+// Block user button status
+fetch("http://localhost/twitter/blockstatus.php", { //Fetch block status api
+    method: 'POST',
+    body: new URLSearchParams({
+      //blocked_id: localStorage.getItem("id"),
+      blocked_id: localStorage.getItem("destination")
     })
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data == 1) { //If the user is already blocked , change the button to unblock
+      more_button.innerHTML = "UnBlock";
+      block_button_toggle = true;
 
-
-
-
-
-    // Block user button
-    block_button_toggle = false;
-    more_button.addEventListener('click', (e) => { //add button functionality
-      e.preventDefault()
-      block_button_toggle =!block_button_toggle;
-
-      if (block_button_toggle == true) {
-      fetch("http://localhost/twitter/blockuser.php", { //Fetch block user api
-          method: 'POST',
-          body: new URLSearchParams({ //send user id to block
-            user_id: localStorage.getItem("id"),
-            blocked_id: localStorage.getItem("destination")
-          })
-        })
-        .then(response => response.json())
-        .then(data => {
-          more_button.innerHTML="UnBlock";
-      //    console.log(data);
-
-        })
-
+    } else { // else if the user is not blocked, change the button to Block
+      more_button.innerHTML = "Block";
+      block_button_toggle = false;
 
     }
 
-
-    else {
-     fetch("http://localhost/twitter/unblockuser.php", { //Fetch add follower api
-         method: 'POST',
-         body: new URLSearchParams({
-           user_id: localStorage.getItem("id"),
-           blocked_id: localStorage.getItem("destination")
-         })
-       })
-       .then(response => response.json())
-       .then(data => {
-         more_button.innerHTML="Block";
-      //   console.log(data);
-
-       })
-
-
-   }
- })
+  })
 
 
 
+// Block user button
 
+more_button.addEventListener('click', (e) => { //add button functionality
+  e.preventDefault()
+  block_button_toggle = !block_button_toggle;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // Following count
-
-    fetch("http://localhost/twitter/countfollowing.php", { //Fetch block user api
-      method: 'POST',
-      body: new URLSearchParams({ //send user id to block
-        // follower_id: localStorage.getItem("id"),
-        follower_id: localStorage.getItem("destination")
-        // follower_id: 233,
+  if (block_button_toggle == true) {
+    fetch("http://localhost/twitter/blockuser.php", { //Fetch block user api
+        method: 'POST',
+        body: new URLSearchParams({ //send user id to block
+          user_id: localStorage.getItem("id"),
+          blocked_id: localStorage.getItem("destination")
+        })
       })
+      .then(response => response.json())
+      .then(data => {
+        more_button.innerHTML = "UnBlock";
+        location.reload();
+
+      })
+
+
+  } else {
+    fetch("http://localhost/twitter/unblockuser.php", { //Fetch add follower api
+        method: 'POST',
+        body: new URLSearchParams({
+          user_id: localStorage.getItem("id"),
+          blocked_id: localStorage.getItem("destination")
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        more_button.innerHTML = "Block";
+        location.reload();
+
+      })
+
+
+  }
+})
+
+
+
+
+
+
+
+
+
+// Following count
+
+fetch("http://localhost/twitter/countfollowing.php", { //Fetch block user api
+    method: 'POST',
+    body: new URLSearchParams({ //send user id to block
+      // follower_id: localStorage.getItem("id"),
+      follower_id: localStorage.getItem("destination")
+      // follower_id: 233,
     })
-    .then(response => response.json())
-    .then(data => {
+  })
+  .then(response => response.json())
+  .then(data => {
 
     //  console.log(data);
 
-      followingcount.innerHTML = `${data} Following`;
-      // followingcount.append(" Following")
+    followingcount.innerHTML = `${data} Following`;
+    // followingcount.append(" Following")
+  })
+
+
+// Follower count
+
+fetch("http://localhost/twitter/countfollowers.php", { //Fetch block user api
+    method: 'POST',
+    body: new URLSearchParams({ //send user id to block
+      // follower_id: localStorage.getItem("id"),
+      follower_id: localStorage.getItem("destination")
+      // follower_id: 233,
     })
-
-
-    // Follower count
-
-    fetch("http://localhost/twitter/countfollowers.php", { //Fetch block user api
-      method: 'POST',
-      body: new URLSearchParams({ //send user id to block
-        // follower_id: localStorage.getItem("id"),
-        follower_id: localStorage.getItem("destination")
-        // follower_id: 233,
-      })
-    })
-    .then(response => response.json())
-    .then(data => {
+  })
+  .then(response => response.json())
+  .then(data => {
 
     //  console.log(data);
 
-      followerscount.innerHTML = `${data} Followers`;
+    followerscount.innerHTML = `${data} Followers`;
 
-    })
+  })
