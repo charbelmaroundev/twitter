@@ -11,15 +11,23 @@ $follower_id = $_POST["follower_id"];
 $following_id = $_POST["following_id"];
 
 
-$query = $mysqli->prepare("INSERT INTO user_followers(follower_id , following_id) VALUE (?,?)");
-$query->bind_param("ss", $follower_id , $following_id);
+
+$query = $mysqli->prepare("SELECT follower_id FROM user_followers WHERE following_id = ? LIMIT 1");
+$query->bind_param("s", $following_id);
 $query->execute();
 
 
+$result = $query -> get_result();
 
-$response = [];
-$response["success"] = true;
+$num_rows = $result->num_rows;
 
-echo json_encode($response);
+if($num_rows != 0)
+{
+    echo json_encode(1);
+  // "You have already followed this user";
+    exit();
+}
 
-?>
+else {
+  echo json_encode(0);
+}

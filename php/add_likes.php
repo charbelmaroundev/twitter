@@ -6,11 +6,12 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorizatio
 
 include("connection.php");
 
-$tweets_tweets_id = $_POST["tweets_tweets_id"];
-$users_id = $_POST["users_id"];
+$likes_id = $_POST["likes_id"];
+$tweet_id = $_POST["tweet_id"];
+$user_id = $_POST["user_id"];
 
-$query = $mysqli->prepare("INSERT INTO user_follow_user(users_id , tweets_tweets_id , count_likes) VALUE (?,?,?)");
-$query->bind_param("ss", $follower_id , $following_id,"1");
+$query = $mysqli->prepare("INSERT INTO likes(likes_id, user_id , tweet_id) VALUE (?,?,?)");
+$query->bind_param("sss", $likes_id , $user_id , $tweet_id);
 $query->execute();
 
 
