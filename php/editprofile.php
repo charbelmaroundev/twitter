@@ -6,15 +6,16 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorizatio
 
 include("connection.php");
 
+$firstname = $_POST["firstname"];
+$lastname = $_POST["lastname"];
+$image = $_POST["image"];
+// $password = hash("sha256", $_POST["password"]);
+// $password .= "a";
 
-$users_id = $_POST["users_id"];
-$users_id1 = $_POST["users_id1"];
 
-
-$query = $mysqli->prepare("INSERT INTO users_has_users(users_id , users_id1) VALUE (?,?)");
-$query->bind_param("ss", $users_id , $users_id1);
+$query = $mysqli->prepare("INSERT INTO users(firstname, lastname, image) VALUE (?, ?, ?)");
+$query->bind_param("sss", $firstname, $lastname, $image);
 $query->execute();
-
 
 
 $response = [];

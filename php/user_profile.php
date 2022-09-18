@@ -6,12 +6,8 @@ header('Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE');
 header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorization, X-Request-With');
 
 include("connection.php");
-
-
-$email=$_POST["email"];
-
-
-$query = $mysqli->prepare("SELECT (first_name,last_name,username,email) FROM users");
+$id=$_GET["id"];
+$query = $mysqli->prepare("SELECT first_name , last_name , username , image FROM users WHERE id='$id'");
 $query->execute();
 $array = $query->get_result();
 

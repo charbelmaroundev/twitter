@@ -118,7 +118,7 @@ const followingcount=document.querySelector('.profile-following');
             console.log(data);
 
             followingcount.innerHTML = data;
-            followingcount.append(" Following")
+            followingcount.append(" Followings")
         })
 
 
