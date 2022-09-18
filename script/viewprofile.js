@@ -27,13 +27,41 @@ fetch("http://localhost/twitter/fetchdata_id.php", {
 
 
 // follow user button
-follow_button_toggle = false;
+  fetch("http://localhost/twitter/followstatus.php", { //Fetch follower status api
+      method: 'POST',
+      body: new URLSearchParams({
+        follower_id: localStorage.getItem("id"),
+        following_id: localStorage.getItem("destination")
+      })
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data==1) { //If the user is already a follower , change the button to unfollow
+        followrequest.innerHTML="Unfollow";
+        follow_button_toggle = true;
+        console.log(data);
+
+      }
+      else{ // else if the user is now a follower, change the button to follow
+        followrequest.innerHTML="Follow";
+        follow_button_toggle = false;
+
+      }
+
+    })
+
+
+
+
+
+
 
 followrequest.addEventListener('click', (e) => { // add follow button functionality
       e.preventDefault()
       follow_button_toggle = !follow_button_toggle;
-      if (follow_button_toggle == true) {
 
+      //Toggle the button to follow and add to the destination follower
+      if (follow_button_toggle == true) {
         fetch("http://localhost/twitter/addfollower.php", { //Fetch add follower api
             method: 'POST',
             body: new URLSearchParams({
@@ -44,8 +72,7 @@ followrequest.addEventListener('click', (e) => { // add follow button functional
           .then(response => response.json())
           .then(data => {
             followrequest.innerHTML="Unfollow";
-            console.log(data);
-
+            location. reload();
           })
 
 
@@ -61,9 +88,10 @@ followrequest.addEventListener('click', (e) => { // add follow button functional
           })
           .then(response => response.json())
           .then(data => {
-            console.log("I am here");
+          //  console.log("I am here");
             followrequest.innerHTML="follow";
-            console.log(data);
+              location. reload();
+        //    console.log(data);
 
           })
 
@@ -92,7 +120,7 @@ followrequest.addEventListener('click', (e) => { // add follow button functional
         .then(response => response.json())
         .then(data => {
           more_button.innerHTML="UnBlock";
-          console.log(data);
+      //    console.log(data);
 
         })
 
@@ -111,7 +139,7 @@ followrequest.addEventListener('click', (e) => { // add follow button functional
        .then(response => response.json())
        .then(data => {
          more_button.innerHTML="Block";
-         console.log(data);
+      //   console.log(data);
 
        })
 
@@ -149,7 +177,7 @@ followrequest.addEventListener('click', (e) => { // add follow button functional
     .then(response => response.json())
     .then(data => {
 
-      console.log(data);
+    //  console.log(data);
 
       followingcount.innerHTML = `${data} Following`;
       // followingcount.append(" Following")
@@ -169,7 +197,7 @@ followrequest.addEventListener('click', (e) => { // add follow button functional
     .then(response => response.json())
     .then(data => {
 
-      console.log(data);
+    //  console.log(data);
 
       followerscount.innerHTML = `${data} Followers`;
 
