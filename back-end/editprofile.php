@@ -6,17 +6,23 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorizatio
 
 include("connection.php");
 
+
+$id = $_POST["id"];
 $firstname = $_POST["firstname"];
 $lastname = $_POST["lastname"];
 $image = $_POST["image"];
-// $password = hash("sha256", $_POST["password"]);
-// $password .= "a";
 
-
-$query = $mysqli->prepare("INSERT INTO users(firstname, lastname, image) VALUE (?, ?, ?)");
-$query->bind_param("sss", $firstname, $lastname, $image);
+$query = $mysqli->prepare("UPDATE users SET firstname = ?  WHERE id = ? ");
+$query->bind_param("ss", $firstname, $id);
 $query->execute();
 
+$query = $mysqli->prepare("UPDATE users SET lastname = ?  WHERE id = ? ");
+$query->bind_param("ss", $lastname, $id);
+$query->execute();
+
+$query = $mysqli->prepare("UPDATE users SET image = ?  WHERE id = ? ");
+$query->bind_param("ss", $image, $id);
+$query->execute();
 
 $response = [];
 $response["success"] = true;
