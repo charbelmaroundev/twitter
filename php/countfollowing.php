@@ -17,9 +17,14 @@ $query->bind_param("s", $follower_id);
 $query->execute();
 
 
+
+$return = $query -> get_result();
+$result = $return -> fetch_assoc();
+
+
+
+
 $response = [];
 $response["success"] = true;
-echo json_encode($result['total_followers']);
-
-
+echo json_encode($result['total_following']);
 ?>

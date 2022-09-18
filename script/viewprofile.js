@@ -6,7 +6,7 @@ const accountImg1El = document.querySelector('.account-img');
 const followrequest =document.querySelector('.follow-btn');
 const more_button =document.querySelector('.more');
 const followerscount=document.querySelector('.profile-followers');
-
+const followingcount=document.querySelector('.profile-following');
 
 
 //
@@ -99,6 +99,31 @@ const followerscount=document.querySelector('.profile-followers');
 
 
     })
+
+
+
+    // Following count
+
+    fetch("http://localhost/twitter/countfollowing.php", {       //Fetch block user api
+        method: 'POST',
+        body: new URLSearchParams({                         //send user id to block
+            // follower_id:localStorage.getItem("id"),
+            // following_id: localStorage.getItem("destination")
+            follower_id:233,
+        })
+    })
+        .then(response => response.json())
+        .then(data => {
+
+            console.log(data);
+
+            followingcount.innerHTML = data;
+            followingcount.append(" Following")
+        })
+
+
+
+
 
 
 
