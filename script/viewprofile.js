@@ -27,10 +27,33 @@ fetch("http://localhost/twitter/fetchdata_id.php", {
 
 
 // follow user button
+follow_button_toggle=false;
+
 followrequest.addEventListener('click', (e) => {            // add follow button functionality
     e.preventDefault()
+    follow_button_toggle =!follow_button_toggle;
+    if (follow_button_toggle==false) {
 
-    fetch("http://localhost/twitter/addfollower.php", {         //Fetch add follower api
+      fetch("http://localhost/twitter/addfollower.php", {         //Fetch add follower api
+          method: 'POST',
+          body: new URLSearchParams({
+              follower_id: localStorage.getItem("id"),
+              following_id: localStorage.getItem("destination")
+          })
+      })
+          .then(response => response.json())
+          .then(data => {
+
+              console.log(data);
+
+          })
+
+
+  })
+
+  else {
+    
+    fetch("http://localhost/twitter/removefollower.php", {         //Fetch add follower api
         method: 'POST',
         body: new URLSearchParams({
             follower_id: localStorage.getItem("id"),
@@ -46,6 +69,13 @@ followrequest.addEventListener('click', (e) => {            // add follow button
 
 
 })
+
+
+
+
+  }
+    }
+
 
 
 
@@ -85,7 +115,7 @@ fetch("http://localhost/twitter/countfollowers.php", {       //Fetch block user 
         console.log(data);
 
         followerscount.innerHTML = `${data} Followers`;
-        // followerscount.append(" Followers")
+
     })
 
 
