@@ -12,6 +12,7 @@ $email = $_POST["email"];
 $password = $_POST["password"];
 $password = hash("sha256", $_POST["password"]);
 $password .= "a";
+$image = $_POST["image"];
 
 $query1 = $mysqli->prepare("SELECT COUNT(*) as username FROM users WHERE username = ?");
 $query1->bind_param("s", $username);
@@ -29,8 +30,8 @@ $result2 = $return2 -> fetch_assoc();
 $response = [];
 
 if(!$result2['email'] and !$result1['username']){
-    $query = $mysqli->prepare("INSERT INTO users(firstname,lastname, username, email, password) VALUE (?, ?, ?, ?, ?)");
-    $query->bind_param("sssss", $firstname, $lastname, $username, $email, $password);
+    $query = $mysqli->prepare("INSERT INTO users(firstname,lastname, username, email, password, image) VALUE (?, ?, ?, ?, ?, ?)");
+    $query->bind_param("ssssss", $firstname, $lastname, $username, $email, $password, $image);
     $query->execute();
 
 
@@ -41,13 +42,9 @@ if(!$result2['email'] and !$result1['username']){
 
     $return3 = $query3 -> get_result();
     $result3 = $return3 -> fetch_assoc();
-    
-    // $response["created"] = $result3['id'];
-    // echo json_encode($result['id']);
 
     echo json_encode($result3['id']);
-
-    // echo json_encode($response);
+    
 }  elseif ($result2['email']){
     $response[$result2['email']] = "EMAIL";
     echo json_encode($response);
