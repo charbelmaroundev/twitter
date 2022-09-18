@@ -6,21 +6,20 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorizatio
 
 include("connection.php");
 
-$search = $_POST["search"];
-$search = "%".$search."%";
 
-$query = $mysqli->prepare("SELECT id, firstname, lastname, username, image FROM users WHERE firstname LIKE ? or lastname LIKE ? or username LIKE ?");
-$query->bind_param("sss", $search, $search, $search);
+$tweet_text = $_POST["tweet_text"];
+$tweet_image = $_POST["tweet_image"];
+$user_id = $_POST["user_id"];
+
+
+$query = $mysqli->prepare("INSERT INTO tweets(tweet_text , tweet_image, user_id) VALUE (?, ?, ?)");
+$query->bind_param("sss", $tweet_text , $tweet_image, $user_id);
 $query->execute();
 
-$array = $query->get_result();
 
 
 $response = [];
-
-while($a = $array->fetch_assoc()){
-    $response[] = $a;
-}
+$response["success"] = true;
 
 echo json_encode($response);
 
