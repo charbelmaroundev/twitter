@@ -12,13 +12,14 @@ $follower_id = $_POST["follower_id"];
 
 
 
-$query = $mysqli->prepare("SELECT COUNT(follower_id) FROM user_follow_user WHERE follower_id = ? LIMIT 1");
+$query = $mysqli->prepare("SELECT COUNT(follower_id) as total_following FROM user_follow_user WHERE follower_id = ? LIMIT 1");
 $query->bind_param("s", $follower_id);
 $query->execute();
 
 
 $response = [];
 $response["success"] = true;
-echo json_encode($response);
+echo json_encode($result['total_followers']);
+
 
 ?>
