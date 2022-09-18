@@ -11,6 +11,8 @@ const imageProfileImgEl = document.querySelector('.image-profile-img');
 const accountImg = document.querySelector('.account-img');
 const profileUsernameUserEl = document.querySelector('.profile-username-user');
 const popupimgImgEl = document.querySelector('.popupimg-img');
+const profileFollowingEl = document.querySelector('.profile-following span');
+const profileFollowersEl = document.querySelector('.profile-followers span')
 
 updateProfile = () => {
     fetch("http://localhost/twitter/fetchdata_id.php", parameters = {
@@ -64,6 +66,30 @@ editSaveEl.addEventListener("click", () => {
     };
     close();
 });
+
+
+fetch("http://localhost/twitter/countfollowing.php", parameters = {
+    method: 'POST',
+    body: new URLSearchParams({
+        follower_id: localStorage.getItem("id")
+    })
+})
+    .then(response => response.json())
+    .then(data => {
+        profileFollowingEl.innerHTML = data
+    });
+
+fetch("http://localhost/twitter/countfollowers.php", parameters = {
+    method: 'POST',
+    body: new URLSearchParams({
+        follower_id: localStorage.getItem("id")
+    })
+})
+    .then(response => response.json())
+    .then(data => {
+        profileFollowersEl.innerHTML = data
+    });
+
 
 editBtnEL.addEventListener('click', close);
 backdropEl.addEventListener('click', close);
