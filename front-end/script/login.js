@@ -42,35 +42,45 @@ backdropEl2.addEventListener('click', close2);
 
 registerbBtnEl.addEventListener('click', (e) => {
     e.preventDefault();
-    let defaultImage = "./assets/profile.png";
-    let url = "http://localhost/twitter/register.php";
-    let parameters = {
-        method: 'POST',
-        body: new URLSearchParams({
-            firstname: signupFirstnameEl.value,
-            lastname: signupLastnameEl.value,
-            username: signupUsernameEl.value,
-            email: signupEmailEl.value,
-            password: signupPasswordEl.value,
-            image: defaultImage
-        })
-    };
-    fetch(url, parameters)
-        .then(response => response.json())
-        .then(data => {
-            if (data['1'] == "EMAIL") {
-                emailTakenEl.classList.remove("opacity");
-            } else if (data['1'] == "USERNAME") {
-                usernameTakenEl.classList.remove("opacity");
-            } else {
-                localStorage.setItem("logged", true);
-                localStorage.setItem("id", data);
-                accountCreatedEl.classList.remove("opacity");
-                window.setTimeout(function () {
-                    window.location.href = 'homepage.html';
-                }, 5000);
-            };
-        });
+    if (signupFirstnameEl.value && signupLastnameEl.value && signupUsernameEl.value && signupEmailEl.value && signupPasswordEl.value) {
+        let defaultImage = "./assets/profile.png";
+        let url = "http://localhost/twitter/register.php";
+        let parameters = {
+            method: 'POST',
+            body: new URLSearchParams({
+                firstname: signupFirstnameEl.value,
+                lastname: signupLastnameEl.value,
+                username: signupUsernameEl.value,
+                email: signupEmailEl.value,
+                password: signupPasswordEl.value,
+                image: defaultImage
+            })
+        };
+        fetch(url, parameters)
+            .then(response => response.json())
+            .then(data => {
+                if (data['1'] == "EMAIL") {
+                    emailTakenEl.classList.remove("opacity");
+                } else if (data['1'] == "USERNAME") {
+                    usernameTakenEl.classList.remove("opacity");
+                } else {
+                    localStorage.setItem("logged", true);
+                    localStorage.setItem("id", data);
+                    accountCreatedEl.classList.remove("opacity");
+                    accountCreatedEl.innerHTML = "ACCOUNT CREATED";
+                    accountCreatedEl.style.color = ("green");
+                    window.setTimeout(function () {
+                        window.location.href = 'homepage.html';
+                    }, 5000);
+                };
+            });
+    } else {
+        accountCreatedEl.innerHTML = "Please enter all information";
+        accountCreatedEl.classList.remove("opacity");
+        accountCreatedEl.style.color = ("red");
+
+    }
+
 });
 
 loginBtnEl.addEventListener('click', (e) => {
