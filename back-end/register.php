@@ -14,7 +14,6 @@ $password = hash("sha256", $_POST["password"]);
 $password .= "a";
 $image = $_POST["image"];
 
-
 $query1 = $mysqli->prepare("SELECT COUNT(*) as username FROM users WHERE username = ?");
 $query1->bind_param("s", $username);
 $query1->execute();
@@ -43,7 +42,6 @@ if(!$result2['email'] and !$result1['username']){
 
     $return3 = $query3 -> get_result();
     $result3 = $return3 -> fetch_assoc();
-
 
     echo json_encode($result3['id']);
     
