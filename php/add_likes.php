@@ -7,8 +7,8 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorizatio
 include("connection.php");
 
 $likes_id = $_POST["likes_id"];
-$tweet_id = $_POST["tweet_id"];
 $user_id = $_POST["user_id"];
+$tweet_id = $_POST["tweet_id"];
 
 $query = $mysqli->prepare("INSERT INTO likes(likes_id, user_id , tweet_id) VALUE (?,?,?)");
 $query->bind_param("sss", $likes_id , $user_id , $tweet_id);
